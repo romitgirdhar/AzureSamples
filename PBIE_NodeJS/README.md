@@ -93,14 +93,14 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         ![](Images/12_relationships.png)
 
     You are now ready to author your reports.
-
-
-
+  
+  
+  
 1. **Authoring Your PowerBI Report**
 
      Now Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
 
-        ![](Images/13_select_canvas.png)
+     ![](Images/13_select_canvas.png)
   
   
      1. _Chart showcasing Total Amount Spent Till Date_
@@ -189,110 +189,117 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
     
 1. **Creating Roles for Each Customer**
 
-Now that our report has been created, we will start creating roles for our different customers so that they can see how much products they&#39;ve ordered. For this exercise, we will assume that all our customers have a &#39;adventure-works.com&#39; email domain.
+     Now that our report has been created, we will start creating roles for our different customers so that they can see how much products they&#39;ve ordered. For this exercise, we will assume that all our customers have a &#39;adventure-works.com&#39; email domain.
 
-Since we&#39;re using the AdventureWorksDB that already has relationships created between users and sales data, we do not need to create additional relationships.
+     Since we&#39;re using the AdventureWorksDB that already has relationships created between users and sales data, we do not need to create additional relationships.
 
-1. Let&#39;s first verify that the relationships between our datasets are setup as expected. Within Power BI Desktop, click on the &#39;**Relationships**&#39; icon on the left pane.
+     1. Let&#39;s first verify that the relationships between our datasets are setup as expected. Within Power BI Desktop, click on the &#39;**Relationships**&#39; icon on the left pane.
 
-  	![](Images/31_select_relationship.png)
+  	    ![](Images/31_select_relationship.png)
 
-1. Notice the relationship between the &#39;**SalesOrderDetail**&#39; table and the &#39;**Customer**&#39; table. We will filter our reports based on the customers that log in and only show the customers the data that pertains to them.
+     1. Notice the relationship between the &#39;**SalesOrderDetail**&#39; table and the &#39;**Customer**&#39; table. We will filter our reports based on the customers that log in and only show the customers the data that pertains to them.
 
-  	![](Images/32_relationship.png)
+     	![](Images/32_relationship.png)
 
-1. This is what the &#39;**Customer**&#39; table looks like. We will set **EmailAddress** as the **username**.
+     1. This is what the &#39;**Customer**&#39; table looks like. We will set **EmailAddress** as the **username**.
 
-  	![](Images/33_raw_data.png)
+    	![](Images/33_raw_data.png)
 
-1. Based on this schema, if we apply a filter to the **EmailAddress** column in the **Customer** table, and if that filter matches the user viewing the report, that filter will also filter down the **SalesOrderDetail** , **SalesOrderHeader** , **Product** and **ProductCategory** tables to only show data for that particular customer.
+     1. Based on this schema, if we apply a filter to the **EmailAddress** column in the **Customer** table, and if that filter matches the user viewing the report, that filter will also filter down the **SalesOrderDetail** , **SalesOrderHeader** , **Product** and **ProductCategory** tables to only show data for that particular customer.
 
-1. On the Modeling tab, click **Manage Roles**.
+     1. On the Modeling tab, click **Manage Roles**.
 
-  	![](Images/34_manage_roles.png)
+    	![](Images/34_manage_roles.png)
 
-1. Create a new role called **Customer**.
+     1. Create a new role called **Customer**.
  
-  	![](Images/35_customer_role.png)
+    	![](Images/35_customer_role.png)
 
-1. In the **Customer** table enter the following DAX expression: **[EmailAddress] = USERNAME()**
-
-
-  	![](Images/36_dax.png)
+     1. In the **Customer** table enter the following DAX expression: **[EmailAddress] = USERNAME()**
 
 
+    	![](Images/36_dax.png)
 
-1. To make sure the rules are working, on the **Modeling** tab, click **View as Roles** , and then enter the following:
 
-  	![](Images/37_view_role.png)
+     1. To make sure the rules are working, on the **Modeling** tab, click **View as Roles** , and then enter the following:
 
-The reports will now show data as if you were signed in as **&#39;david16@adventure-works.com&#39;**.
+    	![](Images/37_view_role.png)
 
-At this point, you can save the report on your local computer and close PowerBI Desktop.
+     The reports will now show data as if you were signed in as **&#39;david16@adventure-works.com&#39;**.
 
+     At this point, you can save the report on your local computer and close PowerBI Desktop.
+
+	 
+	 
+	 
 1. **Uploading Your Report to your PBIE Workspace**
 
-1. Make your way over to the command prompt. The first thing to do is to create a Workspace. We will be doing so using the NodeJS SDK. To do so, please use the following command:
+     1. Make your way over to the command prompt. The first thing to do is to create a Workspace. We will be doing so using the NodeJS SDK. To do so, please use the following command:
 
-powerbi create-workspace -c &lt;collection&gt; -k &lt;accessKey&gt;
+	    ``` powerbi create-workspace -c <collection> -k <accessKey> ```
 
-Please replace the &#39;**&lt;collection&gt;**&#39; with your Collection name and the &#39;**&lt;accessKey&gt;**&#39; with your Access Key. Your &#39;**Collection**&#39; and &#39;**AccessKey**&#39; can be found in the Azure portal under the Workspace Collection that you created in Step I.
+        Please replace the &#39;**&lt;collection&gt;**&#39; with your Collection name and the &#39;**&lt;accessKey&gt;**&#39; with your Access Key. Your &#39;**Collection**&#39; and &#39;**AccessKey**&#39; can be found in the Azure portal under the Workspace Collection that you created in Step I.
 
-**NOTE**** : **You can always explore the parameters needed to call a function by typing &#39;** powerbi -h **&#39; or &#39;** powerbi &lt;functionName&gt; -h**&#39;.
+>**NOTE**** : **You can always explore the parameters needed to call a function by typing &#39;** powerbi -h **&#39; or &#39;** powerbi &lt;functionName&gt; -h**&#39;.
+        
+		If successful, you should see the following result, with the Workspace ID. Please keep a note of the Workspace ID.
 
-If successful, you should see the following result, with the Workspace ID. Please keep a note of the Workspace ID.
+		![](Images/38_create_workspace.png)
 
-powerbi get-workspaces -c &lt;collection&gt; -k &lt;accessKey&gt;
 
-  	![](Images/38_create_workspace.png)
 
-1. To ensure that the workspace got created correctly, please run the following command. You should see your recently created Workspace ID in the list.
+     1. To ensure that the workspace got created correctly, please run the following command. You should see your recently created Workspace ID in the list.
+          
+		```  powerbi get-workspaces -c <collection> -k <accessKey>  ```
 
-  	![](Images/39_get_workspaces.png)
+  	      ![](Images/39_get_workspaces.png)
 
-1. Next, we will upload our report into the recently created Workspace ID. We will do so by running the following command (please replace the values of the variables with your specific values).
+     
+	 1. Next, we will upload our report into the recently created Workspace ID. We will do so by running the following command (please replace the values of the variables with your specific values).
 
-powerbi import -c &lt;collection&gt; -w &lt;workspaceId&gt; -k &lt;accessKey&gt; -f &lt;file&gt; -n [name] -o [overwrite]
+        ``` powerbi import -c <collection> -w <workspaceId>  -k <accessKey> -f <filePathAlongWithFileName> -n [nameForThePBIReport] -o [overwrite] ```
 
-**NOTE** : If you are uploading the file for the first time, DO NOT include the overwrite flag.
+>**NOTE** : If you are uploading the file for the first time, DO NOT include the overwrite flag.
 
-  	![](Images/40_import.png)
+		  ![](Images/40_import.png)
  
-1. You can check if the report was successfully uploaded by running the following command:
 
-powerbi get-reports -c &lt;collection&gt; -w &lt;workspaceId&gt; -k &lt;accessKey&gt;
+     1. You can check if the report was successfully uploaded by running the following command:
 
-  	![](Images/41_get_reports.png)
+		``` powerbi get-reports -c <collection> -w <workspaceId>  -k <accessKey> ```
 
-1. Copy and save the **reportID** that you&#39;re trying to embed. You will need this Report ID later.
+		  ![](Images/41_get_reports.png)
 
-1. When we upload our report, it does not upload the connection string with it. So, when using DirectQuery, you need to update the connection settings.
+	 1. Copy and save the **reportID** that you&#39;re trying to embed. You will need this Report ID later.
 
-First thing to do is to get the Dataset ID. When you uploaded your report, your dataset connection string got uploaded as well. To get your Dataset ID, you can run the following command:
+	 1. When we upload our report, it does not upload the connection string with it. So, when using DirectQuery, you need to update the connection settings. First thing to do is to get the Dataset ID. When you uploaded your report, your dataset connection string got uploaded as well. To get your Dataset ID, you can run the following command:
 
-powerbi get-datasets -c &lt;collection&gt; -w &lt;workspaceId&gt; -k &lt;accessKey&gt;
+		``` powerbi get-datasets -c <collection> -w <workspaceId>  -k <accessKey> ```
 
-  	![](Images/42_get_datasets.png)
+		  ![](Images/42_get_datasets.png)
 
-1. Save the **DatasetID** corresponding to the report that you&#39;re trying to embed. You will need it in the next step.
+     1. Save the **DatasetID** corresponding to the report that you&#39;re trying to embed. You will need it in the next step.
 
-1. Next, we need to update the credentials for the database connections. The command looks like:
+     1. Next, we need to update the credentials for the database connections. The command looks like:
 
-powerbi update-connection -c &lt;collection&gt; -w &lt;workspaceId&gt; -d &lt;datasetID&gt; -u &lt;Admin username&gt; -p &lt;admin password&gt; -k &lt;accessKey&gt;
+		``` powerbi update-connection -c <collection> -w <workspaceId> -d <datasetID> -u &lt;Admin username&gt; -p &lt;admin password&gt; -k <accessKey> ```
 
-  	![](Images/43_update_connection.png)
+		  ![](Images/43_update_connection.png)
 
-With this, we have successfully uploaded our report to PowerBI Embedded. It is now time to embed our report into a web application.
+     With this, we have successfully uploaded our report to PowerBI Embedded. It is now time to embed our report into a web application.
 
+	 
+	   
+	   
 1. **NodeJS Sample Application**
 
-For this exercise, we have already created a bare-bone web application using [NodeJS](https://nodejs.org/en/), [Express](http://expressjs.com/) &amp; [Pug](https://pugjs.org/api/getting-started.html) (Jade). We have used [Passport](http://passportjs.org/) for authentication and Jade for our front-end. We will create a sample NodeJS application from scratch and add in the required code to enable PowerBI Embedded reports on our web application. You can also find the finished product in the &#39;finish&#39; folder.
+     For this exercise, we have already created a bare-bone web application using [NodeJS](https://nodejs.org/en/), [Express](http://expressjs.com/) &amp; [Pug](https://pugjs.org/api/getting-started.html) (Jade). We have used [Passport](http://passportjs.org/) for authentication and Jade for our front-end. We will create a sample NodeJS application from scratch and add in the required code to enable PowerBI Embedded reports on our web application. You can also find the finished product in the &#39;finish&#39; folder.
 
-1. **Setting up the Application**
+     1. **Setting up the Application**
 
-1. Let&#39;s first go to the command line and install express
+         1. Let&#39;s first go to the command line and install express
 
-                npm install -g express-generator
+               ``` npm install -g express-generator ```
 
 1. You may find that you get a permissions error. If this is the case rerun the command withsudo.
 
