@@ -21,25 +21,25 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 1. **Create a Workspace Collection**
 
-Please follow the steps highlighted in this walkthrough: [https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection)
+   Please follow the steps highlighted in this walkthrough: [https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection)
 
 
 
 1. **Installing the Node.JS SDK**
 
-PowerBI Node.JS SDK is available for download via github. The repository can be found [here](https://github.com/Microsoft/PowerBI-Node). The Node API works well in conjunction with the Node.JS command line interface, the code for which can be found [here](https://github.com/Microsoft/PowerBI-Cli).
+   PowerBI Node.JS SDK is available for download via github. The repository can be found [here](https://github.com/Microsoft/PowerBI-Node). The Node API works well in conjunction with the Node.JS command line interface, the code for which can be found [here](https://github.com/Microsoft/PowerBI-Cli).
 
-	1. Open a command line interface and type &#39;**npm –v**&#39; to get started. You should get the same response as follows. If you do not, you need to re-install Node.JS.
+   1. Open a command line interface and type &#39;**npm –v**&#39; to get started. You should get the same response as follows. If you do not, you need to re-install Node.JS.
 
- 		![](Images/1_npm_v.png)
+      ![](Images/1_npm_v.png)
 
-	1. Next, let&#39;s install the PowerBI Node API, by typing the following command &#39;**npm install powerbi-api**&#39;:
+    1. Next, let&#39;s install the PowerBI Node API, by typing the following command &#39;**npm install powerbi-api**&#39;:
 
- 		![](Images/2_npm_install_pbi.png)
+      ![](Images/2_npm_install_pbi.png)
 
-	1. Install the PowerBI CLI, by typing the following command &#39;**npm install powerbi-cli -g**&#39;:
+    1. Install the PowerBI CLI, by typing the following command &#39;**npm install powerbi-cli -g**&#39;:
 
- 		![](Images/3_npm_install_pbi_cli.png)
+      ![](Images/3_npm_install_pbi_cli.png)
 
 
 1. **Setting up the Data Sources**
