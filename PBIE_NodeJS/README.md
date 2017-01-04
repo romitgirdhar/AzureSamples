@@ -113,7 +113,7 @@ You are now ready to author your reports.
 
 An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
 
- 	![](Images/16_linetotal.png)
+ 	![](Images/16_line_total.png)
 
 1. Your card should look as follows:
 
@@ -141,7 +141,8 @@ An optional step would be to be to rename the &#39;LineTotal&#39; to something m
 
 An optional step would be to rename the chart title as well.
 
-  	![](Images/22_treemap_canvas.png)
+	![](Images/22_treemap_canvas.png)
+
 
 1. _Chart Showcasing Top Selling Product Categories_
 
@@ -363,23 +364,16 @@ This will install packages and you will see a lot of output. When this is comple
 
 1. Let&#39;s add passport.js and other dependencies to our application by typing the following command from the root directory of your application. The &#39;--save&#39; flag helps you save the package as a part of the package.json. This ensure that it is added as a dependency to your project.
 
-				npm install **passport** --save
-				
-				npm install **passport-local** --save
-				
-				npm install **express-session** --save
-				
-				npm install **connect-flash** --save
-				
-				npm install **tedious** --save
-				
-				npm install **mssql** --save
-				
-				npm install **ms-rest** --save
-				
-				npm install **powerbi-api** --save
-				
-				npm install **powerbi-client** --save
+				npm install passport --save
+				npm install passport-local --save
+				npm install express-session --save
+				npm install connect-flash --save
+				npm install tedious --save
+				npm install mssql --save
+				npm install ms-rest --save
+				npm install powerbi-api --save
+				npm install powerbi-client --save
+
 
 1. Here&#39;s what each of the above npm packages are used for:
 
@@ -400,42 +394,29 @@ This will install packages and you will see a lot of output. When this is comple
 1. Now, open app.js in the editor of your choice. Without going into too much details on how passport.js works, let&#39;s add in the authentication piece.
 2. We will only use one file to perform routing i.e **index.js**. Let&#39;s start by removing the other routing rule below.
 
-				var users = require(&#39;./routes/users&#39;);
+				var users = require('/routes/users');
 
 1. Now that we have removed one of the routing rules and only specified the one routing rule, let&#39;s add information on how to connect to our SQL DB. Before the line that initialized express i.e. var app = express();, let&#39;s add the following few lines. Do not forget to update the connection information in the config variable.
 
 		```
-		var passport = require(&#39;passport&#39;);
-		
-		var LocalStrategy = require(&#39;passport-local&#39;).Strategy;
-		
-		var session = require(&#39;express-session&#39;);
-		
-		var flash = require(&#39;connect-flash&#39;);
-		
-		var sql = require(&#39;mssql&#39;);
-		
-		var Connection = require(&#39;tedious&#39;).Connection;
-		
-		var config = {
-		
-		  userName: &#39;&lt;username&gt;&#39;,
-		
-		  password: &#39;&lt;password&gt;&#39;,
-		
-		  server: &#39;&lt;AzureSQLServer&gt;.database.windows.ne&#39;,
-		
-		  options: {encrypt: true, database: &#39;AdventureWorksSampleDB&#39;, rowCollectionOnRequestCompletion: true}
-		
-		};
-		
-		var connection = new Connection(config);
-		
-		connection.on(&#39;connect&#39;, function(err){
-		
-		  console.log(&#39;Connected to SQL DB&#39;)
-		
-		});
+			var passport = require('passport');
+			var LocalStrategy = require('passport-local').Strategy;
+			var session = require('express-session');
+			var flash = require('connect-flash');
+			var sql = require('mssql');
+			var Connection = require('tedious').Connection;
+			var config = {
+			  userName: '<username>',
+			  password: '<password>’,
+			  server: '<AzureSQLServer>.database.windows.ne',
+			  options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
+			};
+			
+			var connection = new Connection(config);
+			connection.on('connect', function(err){
+			  console.log('Connected to SQL DB')
+			});
+
 
 	```
 
