@@ -98,92 +98,95 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 1. **Authoring Your PowerBI Report**
 
-     1. Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
+     Now Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
 
         ![](Images/13_select_canvas.png)
+  
+  
+     1. _Chart showcasing Total Amount Spent Till Date_
 
-         1. _Chart showcasing Total Amount Spent Till Date_
+         1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
-             1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
+            ![](Images/14_sales_order.png)
 
-                ![](Images/14_sales_order.png)
+         1. At this point, select the &#39;**Card**&#39; visualization from the list, as shown below.
 
-             1. At this point, select the &#39;**Card**&#39; visualization from the list, as shown below.
+            ![](Images/15_visualizations.png)
 
-                ![](Images/15_visualizations.png)
+         1. You should see your card appear on your canvas. Finally, re-size the card and click on the Format section to add a title to the card. An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
 
-     1. You should see your card appear on your canvas. Finally, re-size the card and click on the Format section to add a title to the card. An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
+            ![](Images/16_line_total.png)
 
- 	![](Images/16_line_total.png)
+         1. Your card should look as follows:
 
-	1. Your card should look as follows:
+            ![](Images/17_total_card.png)
+  
+  
+     1. _Chart showcasing Top Sold Products_
 
- 		![](Images/17_total_card.png)
+         1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
-	1. _Chart showcasing Top Sold Products_
+ 		    ![](Images/18_sales_order.png)
 
-	1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
+	     1. Next, scroll to the &#39;**Product**&#39; Table and select the &#39;**Name**&#39; field
 
- 		![](Images/18_sales_order.png)
+ 		    ![](Images/19_product_table.png)
 
-	1. Next, scroll to the &#39;**Product**&#39; Table and select the &#39;**Name**&#39; field
+	     1. At this point, select the &#39;**Treemap**&#39; visualization from the list, as shown below.
 
- 		![](Images/19_product_table.png)
+		    ![](Images/20_treemap.png)
 
-	1. At this point, select the &#39;**Treemap**&#39; visualization from the list, as shown below.
+         1. Ensure that &#39;**Name**&#39; is placed under the &#39;**Group**&#39; section, while &#39;**LineTotal**&#39; is under the &#39;**Values**&#39; section.
 
-		![](Images/20_treemap.png)
+  	        ![](Images/21_treemap_card.png)
 
-1. Ensure that &#39;**Name**&#39; is placed under the &#39;**Group**&#39; section, while &#39;**LineTotal**&#39; is under the &#39;**Values**&#39; section.
+         1. You should see your Treemap appear on your canvas. An optional step would be to rename the chart title as well.
 
-  	![](Images/21_treemap_card.png)
-
-1. You should see your Treemap appear on your canvas.
-
-An optional step would be to rename the chart title as well.
-
-	![](Images/22_treemap_canvas.png)
+         	![](Images/22_treemap_canvas.png)
 
 
-1. _Chart Showcasing Top Selling Product Categories_
+     1. _Chart Showcasing Top Selling Product Categories_
 
-1. Scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**ProductID**&#39; field.
+         1. Scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**ProductID**&#39; field.
 
-  	![](Images/23_sales_order_productid.png)
+            ![](Images/23_sales_order_productid.png)
 
-1. From the &#39;**ProductCategory**&#39; table, select the &#39;**Name**&#39; field.
+         1. From the &#39;**ProductCategory**&#39; table, select the &#39;**Name**&#39; field.
 
-  	![](Images/24_product_category.png)
+            ![](Images/24_product_category.png)
 
-1. From the visualizations section, pick the &#39;**Donut Chart**&#39;. Ensure that the &#39;**Name**&#39; column is situated in the &#39;**Legend**&#39; section and &#39;**ProductID**&#39; ( **count** ) in the &#39;**Values**&#39; section as shown below.
+         1. From the visualizations section, pick the &#39;**Donut Chart**&#39;. Ensure that the &#39;**Name**&#39; column is situated in the &#39;**Legend**&#39; section and &#39;**ProductID**&#39; ( **count** ) in the &#39;**Values**&#39; section as shown below.
 
-  	![](Images/25_donut.png)
+            ![](Images/25_donut.png)
 
-1. You should see the chart as below:
+         1. You should see the chart as below:
 
-  	![](Images/26_donut_canvas.png)
+            ![](Images/26_donut_canvas.png)
+  
+  
+     1. _Chart Showcasing Transaction Amount By Sales Order Number_
 
-1. _Chart Showcasing Transaction Amount By Sales Order Number_
+         1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
-1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
+  	        ![](Images/27_sales_order.png)
 
-  	![](Images/27_sales_order.png)
+         1. From the same table, select the &#39;**SalesOrderID&#39;** field. We&#39;ll assume that we provide the Sales Order Number to our customers when they make a purchase on our website.
 
-1. From the same table, select the &#39;**SalesOrderID&#39;** field. We&#39;ll assume that we provide the Sales Order Number to our customers when they make a purchase on our website.
+         	![](Images/28_sales_order_id.png)
 
-  	![](Images/28_sales_order_id.png)
+         1. From the visualization section, select &#39;**Clustered Column Chart**&#39; visual. Ensure that &#39;**SalesOrderID**&#39; is under the &#39;**Axis**&#39; section and the &#39;**LineTotal**&#39; is under the &#39;**Values**&#39; section.
 
-1. From the visualization section, select &#39;**Clustered Column Chart**&#39; visual. Ensure that &#39;**SalesOrderID**&#39; is under the &#39;**Axis**&#39; section and the &#39;**LineTotal**&#39; is under the &#39;**Values**&#39; section.
+        	![](Images/29_clustered_chart.png)
 
-  	![](Images/29_clustered_chart.png)
+         1. The chart should show up as follows:
 
-1. The chart should show up as follows:
+        	![](Images/30_clustered_chart_canvas.png)
 
-  	![](Images/30_clustered_chart_canvas.png)
-
- Even though the chart doesn&#39;t look as fascinating upfront, once filtered per customer, it will add value to the customer.
-
+         Even though the chart doesn&#39;t look as fascinating upfront, once filtered per customer, it will add value to the customer.
  
+ 
+  
+    
 1. **Creating Roles for Each Customer**
 
 Now that our report has been created, we will start creating roles for our different customers so that they can see how much products they&#39;ve ordered. For this exercise, we will assume that all our customers have a &#39;adventure-works.com&#39; email domain.
