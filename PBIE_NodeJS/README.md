@@ -29,17 +29,18 @@ Please follow the steps highlighted in this walkthrough: [https://azure.microsof
 
 PowerBI Node.JS SDK is available for download via github. The repository can be found [here](https://github.com/Microsoft/PowerBI-Node). The Node API works well in conjunction with the Node.JS command line interface, the code for which can be found [here](https://github.com/Microsoft/PowerBI-Cli).
 
-1. Open a command line interface and type &#39; **npm –v**&#39; to get started. You should get the same response as follows. If you do not, you need to re-install Node.JS.
+	1. Open a command line interface and type &#39;**npm –v**&#39; to get started. You should get the same response as follows. If you do not, you need to re-install Node.JS.
 
- 	![](Images/1_npm_v.png)
+ 		![](Images/1_npm_v.png)
 
-1. Next, let&#39;s install the PowerBI Node API, by typing the following command &#39; **npm install powerbi-api**&#39;:
+	1. Next, let&#39;s install the PowerBI Node API, by typing the following command &#39;**npm install powerbi-api**&#39;:
 
- 	![](Images/2_npm_install_pbi.png)
+ 		![](Images/2_npm_install_pbi.png)
 
-1. Install the PowerBI CLI, by typing the following command &#39; **npm install powerbi-cli -g**&#39;:
+	1. Install the PowerBI CLI, by typing the following command &#39;**npm install powerbi-cli -g**&#39;:
 
- 	![](Images/3_npm_install_pbi_cli.png)
+ 		![](Images/3_npm_install_pbi_cli.png)
+
 
 1. **Setting up the Data Sources**
 
@@ -47,47 +48,48 @@ For the purposes of this lab, we will be using the AdventureWorks Database to hi
 
 Please follow this blog post for instructions on how to setup the AdventureWorks sample database on Microsoft Azure SQL Database: [https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/)
 
+
 1. **Connecting PowerBI Desktop to your Data Source**
 
 The authoring experience is something that the SaaS version of PowerBI (Powerbi.com) and PowerBI embedded share. Before we can embed our reports into our web apps, let&#39;s author a simple report to embed.
 
-1. Open the PowerBI Desktop tool on your machine
+	1. Open the PowerBI Desktop tool on your machine
 
-1. Click on &#39; **Get Data**&#39; found in the top ribbon under the &#39;Home&#39; tab.
+	1. Click on &#39;**Get Data**&#39; found in the top ribbon under the &#39;Home&#39; tab.
 
- 	![](Images/4_get_data.png)
+ 		![](Images/4_get_data.png)
 
-1. Click on &#39; **Azure**&#39; in the left pane and then double click on &#39; **Microsoft Azure SQL Database**&#39;.
+	1. Click on &#39;**Azure**&#39; in the left pane and then double click on &#39;**Microsoft Azure SQL Database**&#39;.
 
- 	![](Images/5_get_data_2.png)
+ 		![](Images/5_get_data_2.png)
 
-1. Enter your server information along with your database name. Be sure to choose &#39; **Direct Query**&#39; and then click **OK**.
+	1. Enter your server information along with your database name. Be sure to choose &#39;**Direct Query**&#39; and then click **OK**.
 
-  	![](Images/6_direct_query.png)
+ 		![](Images/6_direct_query.png)
 
-1. Once prompted for the credentials, click on &#39; **Database**&#39; on the left pane. Enter your username and password and click &#39; **Connect**&#39;.
+	1. Once prompted for the credentials, click on &#39;**Database**&#39; on the left pane. Enter your username and password and click &#39;**Connect**&#39;.
 
-  	![](Images/7_dq_username.png)
+ 		![](Images/7_dq_username.png)
 
-1. Choose the following tables from the list of tables
+	1. Choose the following tables from the list of tables
 
-  	![](Images/8_get_tables.png)
+ 		![](Images/8_get_tables.png)
 
-1. You might get prompted again to pick between DirectQuery and Import. Be sure to pick &#39; **Direct Query**&#39;.
+	1. You might get prompted again to pick between DirectQuery and Import. Be sure to pick &#39;**Direct Query**&#39;.
 
-  	![](Images/9_dq_select.png)
+ 		![](Images/9_dq_select.png)
 
-1. PowerBI Desktop will now start pulling your tables into the canvas for you to work with the data. To verify that the data has loaded, checked the right pane to make sure you can see the table names and drill into each table to ensure that the column names have loaded.
+	1. PowerBI Desktop will now start pulling your tables into the canvas for you to work with the data. To verify that the data has loaded, checked the right pane to make sure you can see the table names and drill into each table to ensure that the column names have loaded.
 
-  	![](Images/10_pbi_fields.png)
+ 		![](Images/10_pbi_fields.png)
 
-1. Ensure that the data source relationships were loaded as well. In order to do this, click on the relationships icon in the left pane
+	1. Ensure that the data source relationships were loaded as well. In order to do this, click on the relationships icon in the left pane
 
-  	![](Images/11_select_relationship.png)
+ 		![](Images/11_select_relationship.png)
 
-1. You should see the relationships between the tables, like this.
+	1. You should see the relationships between the tables, like this.
 
-  	![](Images/12_relationships.png)
+ 		![](Images/12_relationships.png)
 
 You are now ready to author your reports.
 
@@ -95,45 +97,43 @@ You are now ready to author your reports.
 
 1. **Authoring Your PowerBI Report**
 
-1. Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
+	1. Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
 
-  	![](Images/13_select_canvas.png)
+ 		![](Images/13_select_canvas.png)
 
-1. _Chart showcasing Total Amount Spent Till Date_
+	1. _Chart showcasing Total Amount Spent Till Date_
 
-1. From the right pane, scroll to the &#39; **SalesOrderDetail**&#39; table and click the checkmark next to the &#39; **LineTotal**&#39; field.
+	1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
-  	![](Images/14_sales_order.png)
+ 		![](Images/14_sales_order.png)
 
-1. At this point, select the &#39; **Card**&#39; visualization from the list, as shown below.
+	1. At this point, select the &#39;**Card**&#39; visualization from the list, as shown below.
 
-  	![](Images/15_visualizations.png)
+ 		![](Images/15_visualizations.png)
 
-1. You should see your card appear on your canvas. Finally, re-size the card and click on the Format section to add a title to the card.
-
-An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
+	1. You should see your card appear on your canvas. Finally, re-size the card and click on the Format section to add a title to the card. An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
 
  	![](Images/16_line_total.png)
 
-1. Your card should look as follows:
+	1. Your card should look as follows:
 
-  	![](Images/17_total_card.png)
+ 		![](Images/17_total_card.png)
 
-1. _Chart showcasing Top Sold Products_
+	1. _Chart showcasing Top Sold Products_
 
-1. From the right pane, scroll to the &#39; **SalesOrderDetail**&#39; table and click the checkmark next to the &#39; **LineTotal**&#39; field.
+	1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
-  	![](Images/18_sales_order.png)
+ 		![](Images/18_sales_order.png)
 
-1. Next, scroll to the &#39; **Product**&#39; Table and select the &#39; **Name**&#39; field
+	1. Next, scroll to the &#39;**Product**&#39; Table and select the &#39;**Name**&#39; field
 
-  	![](Images/19_product_table.png)
+ 		![](Images/19_product_table.png)
 
-1. At this point, select the &#39; **Treemap**&#39; visualization from the list, as shown below.
+	1. At this point, select the &#39;**Treemap**&#39; visualization from the list, as shown below.
 
-  	![](Images/20_treemap.png)
+		![](Images/20_treemap.png)
 
-1. Ensure that &#39; **Name**&#39; is placed under the &#39; **Group**&#39; section, while &#39; **LineTotal**&#39; is under the &#39; **Values**&#39; section.
+1. Ensure that &#39;**Name**&#39; is placed under the &#39;**Group**&#39; section, while &#39;**LineTotal**&#39; is under the &#39;**Values**&#39; section.
 
   	![](Images/21_treemap_card.png)
 
@@ -146,15 +146,15 @@ An optional step would be to rename the chart title as well.
 
 1. _Chart Showcasing Top Selling Product Categories_
 
-1. Scroll to the &#39; **SalesOrderDetail**&#39; table and click the checkmark next to the &#39; **ProductID**&#39; field.
+1. Scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**ProductID**&#39; field.
 
   	![](Images/23_sales_order_productid.png)
 
-1. From the &#39; **ProductCategory**&#39; table, select the &#39; **Name**&#39; field.
+1. From the &#39;**ProductCategory**&#39; table, select the &#39;**Name**&#39; field.
 
   	![](Images/24_product_category.png)
 
-1. From the visualizations section, pick the &#39; **Donut Chart**&#39;. Ensure that the &#39; **Name**&#39; column is situated in the &#39; **Legend**&#39; section and &#39; **ProductID**&#39; ( **count** ) in the &#39; **Values**&#39; section as shown below.
+1. From the visualizations section, pick the &#39;**Donut Chart**&#39;. Ensure that the &#39;**Name**&#39; column is situated in the &#39;**Legend**&#39; section and &#39;**ProductID**&#39; ( **count** ) in the &#39;**Values**&#39; section as shown below.
 
   	![](Images/25_donut.png)
 
@@ -164,15 +164,15 @@ An optional step would be to rename the chart title as well.
 
 1. _Chart Showcasing Transaction Amount By Sales Order Number_
 
-1. From the right pane, scroll to the &#39; **SalesOrderDetail**&#39; table and click the checkmark next to the &#39; **LineTotal**&#39; field.
+1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
   	![](Images/27_sales_order.png)
 
-1. From the same table, select the &#39; **SalesOrderID&#39;** field. We&#39;ll assume that we provide the Sales Order Number to our customers when they make a purchase on our website.
+1. From the same table, select the &#39;**SalesOrderID&#39;** field. We&#39;ll assume that we provide the Sales Order Number to our customers when they make a purchase on our website.
 
   	![](Images/28_sales_order_id.png)
 
-1. From the visualization section, select &#39; **Clustered Column Chart**&#39; visual. Ensure that &#39; **SalesOrderID**&#39; is under the &#39; **Axis**&#39; section and the &#39; **LineTotal**&#39; is under the &#39; **Values**&#39; section.
+1. From the visualization section, select &#39;**Clustered Column Chart**&#39; visual. Ensure that &#39;**SalesOrderID**&#39; is under the &#39;**Axis**&#39; section and the &#39;**LineTotal**&#39; is under the &#39;**Values**&#39; section.
 
   	![](Images/29_clustered_chart.png)
 
@@ -189,15 +189,15 @@ Now that our report has been created, we will start creating roles for our diffe
 
 Since we&#39;re using the AdventureWorksDB that already has relationships created between users and sales data, we do not need to create additional relationships.
 
-1. Let&#39;s first verify that the relationships between our datasets are setup as expected. Within Power BI Desktop, click on the &#39; **Relationships**&#39; icon on the left pane.
+1. Let&#39;s first verify that the relationships between our datasets are setup as expected. Within Power BI Desktop, click on the &#39;**Relationships**&#39; icon on the left pane.
 
   	![](Images/31_select_relationship.png)
 
-1. Notice the relationship between the &#39; **SalesOrderDetail**&#39; table and the &#39; **Customer**&#39; table. We will filter our reports based on the customers that log in and only show the customers the data that pertains to them.
+1. Notice the relationship between the &#39;**SalesOrderDetail**&#39; table and the &#39;**Customer**&#39; table. We will filter our reports based on the customers that log in and only show the customers the data that pertains to them.
 
   	![](Images/32_relationship.png)
 
-1. This is what the &#39; **Customer**&#39; table looks like. We will set **EmailAddress** as the **username**.
+1. This is what the &#39;**Customer**&#39; table looks like. We will set **EmailAddress** as the **username**.
 
   	![](Images/33_raw_data.png)
 
@@ -232,7 +232,7 @@ At this point, you can save the report on your local computer and close PowerBI 
 
 powerbi create-workspace -c &lt;collection&gt; -k &lt;accessKey&gt;
 
-Please replace the &#39; **&lt;collection&gt;**&#39; with your Collection name and the &#39; **&lt;accessKey&gt;**&#39; with your Access Key. Your &#39; **Collection**&#39; and &#39; **AccessKey**&#39; can be found in the Azure portal under the Workspace Collection that you created in Step I.
+Please replace the &#39;**&lt;collection&gt;**&#39; with your Collection name and the &#39;**&lt;accessKey&gt;**&#39; with your Access Key. Your &#39;**Collection**&#39; and &#39;**AccessKey**&#39; can be found in the Azure portal under the Workspace Collection that you created in Step I.
 
 **NOTE**** : **You can always explore the parameters needed to call a function by typing &#39;** powerbi -h **&#39; or &#39;** powerbi &lt;functionName&gt; -h**&#39;.
 
@@ -352,7 +352,7 @@ This will install packages and you will see a lot of output. When this is comple
 
         		set DEBUG=pbie\_sample:\* &amp; npm start
 
-**NOTE** : To help you easily deploy changes to your web app, you can also install &#39; **nodemon**&#39;.
+**NOTE** : To help you easily deploy changes to your web app, you can also install &#39;**nodemon**&#39;.
 
 1. Once started, you should be able to navigate to [http://localhost:3000/](http://localhost:3000/) and view the sample web page.
 
@@ -360,7 +360,7 @@ This will install packages and you will see a lot of output. When this is comple
 
 1. **Authentication**
 
-1. Next, we&#39;ll add the authentication layer to this web app so that we can add row-level security. We will use the email addresses found in the &#39; **EmailAddress**&#39; column of the &#39; **Customer**&#39; table in the AdventureWorks database.
+1. Next, we&#39;ll add the authentication layer to this web app so that we can add row-level security. We will use the email addresses found in the &#39;**EmailAddress**&#39; column of the &#39;**Customer**&#39; table in the AdventureWorks database.
 
 1. Let&#39;s add passport.js and other dependencies to our application by typing the following command from the root directory of your application. The &#39;--save&#39; flag helps you save the package as a part of the package.json. This ensure that it is added as a dependency to your project.
 
@@ -676,7 +676,7 @@ The following is the code for creating the **embedToken** for a Power BI Embedde
 	   });
 ```
 
-1. As you can see, we use the Power BI Embedded NodeJS SDK and call the &#39; **createReportEmbedToken**&#39; method to generate the access token. By default, this access token is valid for 1 hour. However, we can change the validity of the token when creating it. You can learn more about creating an Access Toke [here](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-app-token-flow). Once the token is generated, we sign it using the &#39; **appkey**&#39; and store it within the &#39; **jwt**&#39; variable. Finally, notice how we pass the variables to the front-end within the &#39;render&#39; function. We&#39;re passing in two important pieces of information to the front-end. First being the &#39;user&#39; object that holds details about our logged in user, such as his/her name. Second, we pass in a object we created called &#39; **pbiReportDetails**&#39;, which contains important information about our report, such as a **ReportID** and the **AccessToken**. Another approach to this can be creating an API endpoint and having the front-end call into the API endpoint. However, we will not be using that approach in our sample.
+1. As you can see, we use the Power BI Embedded NodeJS SDK and call the &#39;**createReportEmbedToken**&#39; method to generate the access token. By default, this access token is valid for 1 hour. However, we can change the validity of the token when creating it. You can learn more about creating an Access Toke [here](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-app-token-flow). Once the token is generated, we sign it using the &#39;**appkey**&#39; and store it within the &#39;**jwt**&#39; variable. Finally, notice how we pass the variables to the front-end within the &#39;render&#39; function. We&#39;re passing in two important pieces of information to the front-end. First being the &#39;user&#39; object that holds details about our logged in user, such as his/her name. Second, we pass in a object we created called &#39;**pbiReportDetails**&#39;, which contains important information about our report, such as a **ReportID** and the **AccessToken**. Another approach to this can be creating an API endpoint and having the front-end call into the API endpoint. However, we will not be using that approach in our sample.
 
 This is what the final code looks like for the index page (&#39;/&#39;) route:
 
@@ -743,7 +743,7 @@ This is what the final code looks like for the index page (&#39;/&#39;) route:
 
 For the front-end, we will be using JADE (now known as PUG). Jade is a server-side HTML rendering engine. You can learn more about it [here](https://pugjs.org/api/getting-started.html).
 
-1. In the &#39; **Views**&#39; folder, open **layout.jade**. This will be our skeleton layout, which will be added to all the pages of our web app. Replace the content of layout.jade with the following code. Jade is very particular about the indentation, so, ensure that your code is indented correctly.
+1. In the &#39;**Views**&#39; folder, open **layout.jade**. This will be our skeleton layout, which will be added to all the pages of our web app. Replace the content of layout.jade with the following code. Jade is very particular about the indentation, so, ensure that your code is indented correctly.
 
 ```
 		doctype html
@@ -792,7 +792,7 @@ For the front-end, we will be using JADE (now known as PUG). Jade is a server-si
 ```
 
 
-1. What we&#39;ve done here is added a &#39; **Login**&#39;, &#39; **Logout**&#39; and &#39; **Home**&#39; button. Additionally, we&#39;ve also added title text at the top of the page. Let&#39;s ensure our Javascript and css files are referenced correctly. You can download the files from here: [min.js](https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js) and [min.js &amp; bootstrap.min.css](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip). Finally, replace the contents of the file style.css found within the &#39;public/stylesheets&#39; folder with the following:
+1. What we&#39;ve done here is added a &#39;**Login**&#39;, &#39;**Logout**&#39; and &#39;**Home**&#39; button. Additionally, we&#39;ve also added title text at the top of the page. Let&#39;s ensure our Javascript and css files are referenced correctly. You can download the files from here: [min.js](https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js) and [min.js &amp; bootstrap.min.css](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip). Finally, replace the contents of the file style.css found within the &#39;public/stylesheets&#39; folder with the following:
 
 ```css
 		#welcome {
@@ -915,7 +915,7 @@ For the front-end, we will be using JADE (now known as PUG). Jade is a server-si
 ```
 
 
-1. Let&#39;s add our login page. Within the &#39; **Views**&#39; folder, create file called as &#39; **login.jade**&#39; and add the following code in it. Note, we&#39;re using the twitter bootstrap login form template for this login form. It is a basic login form. We will not include advanced features such as &#39;Remember me&#39; and &#39;forgot your password&#39;. An important thing to note here is the first line of the login.jade file. It says &#39;extends layout&#39;. This ensures that layout.jade is used to render the skeleton page before adding the login specifics.
+1. Let&#39;s add our login page. Within the &#39;**Views**&#39; folder, create file called as &#39;**login.jade**&#39; and add the following code in it. Note, we&#39;re using the twitter bootstrap login form template for this login form. It is a basic login form. We will not include advanced features such as &#39;Remember me&#39; and &#39;forgot your password&#39;. An important thing to note here is the first line of the login.jade file. It says &#39;extends layout&#39;. This ensures that layout.jade is used to render the skeleton page before adding the login specifics.
 
 ```Jade
 		extends layout
@@ -1004,7 +1004,7 @@ For the front-end, we will be using JADE (now known as PUG). Jade is a server-si
 ```
 
 
-1. As you can see, we&#39;ve created a div tag called &#39; **iFrameEmbedReport**&#39;. We will be using this div tag to embed our Power BI report within our page. We will add the following JavaScript code to embed the report. The code makes use of the Power BI Javascript SDK we added to our project previously. Notice that we&#39;re adding a reference of the SDK to our index.jade file. To correctly reference it, copy the folder &#39; **powerbi-client**&#39; found in the &#39; **node\_modules**&#39; folder and paste it within the &#39; **public/javascripts**&#39; folder. Here&#39;s the JS code that we will to the bottom of the index.jade file that will help us render the Power BI report within the div tag.
+1. As you can see, we&#39;ve created a div tag called &#39;**iFrameEmbedReport**&#39;. We will be using this div tag to embed our Power BI report within our page. We will add the following JavaScript code to embed the report. The code makes use of the Power BI Javascript SDK we added to our project previously. Notice that we&#39;re adding a reference of the SDK to our index.jade file. To correctly reference it, copy the folder &#39;**powerbi-client**&#39; found in the &#39;**node\_modules**&#39; folder and paste it within the &#39;**public/javascripts**&#39; folder. Here&#39;s the JS code that we will to the bottom of the index.jade file that will help us render the Power BI report within the div tag.
 
 ```JS
 	    script.
