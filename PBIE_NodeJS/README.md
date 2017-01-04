@@ -29,89 +29,90 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
    PowerBI Node.JS SDK is available for download via github. The repository can be found [here](https://github.com/Microsoft/PowerBI-Node). The Node API works well in conjunction with the Node.JS command line interface, the code for which can be found [here](https://github.com/Microsoft/PowerBI-Cli).
 
-   1. Open a command line interface and type &#39;**npm –v**&#39; to get started. You should get the same response as follows. If you do not, you need to re-install Node.JS.
+     1. Open a command line interface and type &#39;**npm –v**&#39; to get started. You should get the same response as follows. If you do not, you need to re-install Node.JS.
 
-      ![](Images/1_npm_v.png)
+        ![](Images/1_npm_v.png)
 
-    1. Next, let&#39;s install the PowerBI Node API, by typing the following command &#39;**npm install powerbi-api**&#39;:
+     1. Next, let&#39;s install the PowerBI Node API, by typing the following command &#39;**npm install powerbi-api**&#39;:
 
-      ![](Images/2_npm_install_pbi.png)
+        ![](Images/2_npm_install_pbi.png)
 
-    1. Install the PowerBI CLI, by typing the following command &#39;**npm install powerbi-cli -g**&#39;:
+     1. Install the PowerBI CLI, by typing the following command &#39;**npm install powerbi-cli -g**&#39;:
 
-      ![](Images/3_npm_install_pbi_cli.png)
+        ![](Images/3_npm_install_pbi_cli.png)
 
 
 1. **Setting up the Data Sources**
 
-For the purposes of this lab, we will be using the AdventureWorks Database to highlight the use of direct query in our PowerBI Embedded application.
+    For the purposes of this lab, we will be using the AdventureWorks Database to highlight the use of direct query in our PowerBI Embedded application.
 
-Please follow this blog post for instructions on how to setup the AdventureWorks sample database on Microsoft Azure SQL Database: [https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/)
+    Please follow this blog post for instructions on how to setup the AdventureWorks sample database on Microsoft Azure SQL Database: [https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/)
 
 
+	
 1. **Connecting PowerBI Desktop to your Data Source**
 
-The authoring experience is something that the SaaS version of PowerBI (Powerbi.com) and PowerBI embedded share. Before we can embed our reports into our web apps, let&#39;s author a simple report to embed.
+    The authoring experience is something that the SaaS version of PowerBI (Powerbi.com) and PowerBI embedded share. Before we can embed our reports into our web apps, let&#39;s author a simple report to embed.
 
-	1. Open the PowerBI Desktop tool on your machine
+     1. Open the PowerBI Desktop tool on your machine
 
-	1. Click on &#39;**Get Data**&#39; found in the top ribbon under the &#39;Home&#39; tab.
+     1. Click on &#39;**Get Data**&#39; found in the top ribbon under the &#39;Home&#39; tab.
 
- 		![](Images/4_get_data.png)
+        ![](Images/4_get_data.png)
 
-	1. Click on &#39;**Azure**&#39; in the left pane and then double click on &#39;**Microsoft Azure SQL Database**&#39;.
+     1. Click on &#39;**Azure**&#39; in the left pane and then double click on &#39;**Microsoft Azure SQL Database**&#39;.
 
- 		![](Images/5_get_data_2.png)
+        ![](Images/5_get_data_2.png)
 
-	1. Enter your server information along with your database name. Be sure to choose &#39;**Direct Query**&#39; and then click **OK**.
+     1. Enter your server information along with your database name. Be sure to choose &#39;**Direct Query**&#39; and then click **OK**.
 
- 		![](Images/6_direct_query.png)
+        ![](Images/6_direct_query.png)
 
-	1. Once prompted for the credentials, click on &#39;**Database**&#39; on the left pane. Enter your username and password and click &#39;**Connect**&#39;.
+     1. Once prompted for the credentials, click on &#39;**Database**&#39; on the left pane. Enter your username and password and click &#39;**Connect**&#39;.
 
- 		![](Images/7_dq_username.png)
+        ![](Images/7_dq_username.png)
 
-	1. Choose the following tables from the list of tables
+     1. Choose the following tables from the list of tables
 
- 		![](Images/8_get_tables.png)
+        ![](Images/8_get_tables.png)
 
-	1. You might get prompted again to pick between DirectQuery and Import. Be sure to pick &#39;**Direct Query**&#39;.
+     1. You might get prompted again to pick between DirectQuery and Import. Be sure to pick &#39;**Direct Query**&#39;.
 
- 		![](Images/9_dq_select.png)
+        ![](Images/9_dq_select.png)
 
-	1. PowerBI Desktop will now start pulling your tables into the canvas for you to work with the data. To verify that the data has loaded, checked the right pane to make sure you can see the table names and drill into each table to ensure that the column names have loaded.
+     1. PowerBI Desktop will now start pulling your tables into the canvas for you to work with the data. To verify that the data has loaded, checked the right pane to make sure you can see the table names and drill into each table to ensure that the column names have loaded.
 
- 		![](Images/10_pbi_fields.png)
+        ![](Images/10_pbi_fields.png)
 
-	1. Ensure that the data source relationships were loaded as well. In order to do this, click on the relationships icon in the left pane
+     1. Ensure that the data source relationships were loaded as well. In order to do this, click on the relationships icon in the left pane
 
- 		![](Images/11_select_relationship.png)
+        ![](Images/11_select_relationship.png)
 
-	1. You should see the relationships between the tables, like this.
+     1. You should see the relationships between the tables, like this.
 
- 		![](Images/12_relationships.png)
+        ![](Images/12_relationships.png)
 
-You are now ready to author your reports.
+    You are now ready to author your reports.
 
 
 
 1. **Authoring Your PowerBI Report**
 
-	1. Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
+     1. Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
 
- 		![](Images/13_select_canvas.png)
+        ![](Images/13_select_canvas.png)
 
-	1. _Chart showcasing Total Amount Spent Till Date_
+         1. _Chart showcasing Total Amount Spent Till Date_
 
-	1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
+             1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
- 		![](Images/14_sales_order.png)
+                ![](Images/14_sales_order.png)
 
-	1. At this point, select the &#39;**Card**&#39; visualization from the list, as shown below.
+             1. At this point, select the &#39;**Card**&#39; visualization from the list, as shown below.
 
- 		![](Images/15_visualizations.png)
+                ![](Images/15_visualizations.png)
 
-	1. You should see your card appear on your canvas. Finally, re-size the card and click on the Format section to add a title to the card. An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
+     1. You should see your card appear on your canvas. Finally, re-size the card and click on the Format section to add a title to the card. An optional step would be to be to rename the &#39;LineTotal&#39; to something more meaningful in the card (this can be done by creating a new column in Power BI Desktop).
 
  	![](Images/16_line_total.png)
 
