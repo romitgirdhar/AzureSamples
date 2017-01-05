@@ -2,6 +2,7 @@
 
 # NodeJS SDK Walkthrough for PowerBI Embedded
 
+<br/>
 
 ## **Introduction:**
 
@@ -9,6 +10,7 @@ PowerBI Embedded (PBIE) is the latest PaaS offering in Microsoft Azure that help
 
 In this document, we will be showcasing how to work with PowerBI Embedded using the NodeJS SDK.
 
+<br/>
 
 ## **Pre-Requisites:**
 
@@ -16,16 +18,15 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 - [A Microsoft Azure Subscription](https://azure.microsoft.com/en-us/free/)
 - [Node.JS](https://nodejs.org/en/download/)
 
+<br/>
 
 ## **Guide:**
 
-1. **Create a Workspace Collection**
+1. ###  **Create a Workspace Collection**
 
    Please follow the steps highlighted in this walkthrough: [https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection)
-
-
-
-1. **Installing the Node.JS SDK**
+<br/><br/><br/>
+1. ###  **Installing the Node.JS SDK**
 
    PowerBI Node.JS SDK is available for download via github. The repository can be found [here](https://github.com/Microsoft/PowerBI-Node). The Node API works well in conjunction with the Node.JS command line interface, the code for which can be found [here](https://github.com/Microsoft/PowerBI-Cli).
 
@@ -40,16 +41,14 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
      1. Install the PowerBI CLI, by typing the following command &#39;**npm install powerbi-cli -g**&#39;:
 
         ![](Images/3_npm_install_pbi_cli.png)
-
-
-1. **Setting up the Data Sources**
+<br/><br/><br/>
+1. ###  **Setting up the Data Sources**
 
     For the purposes of this lab, we will be using the AdventureWorks Database to highlight the use of direct query in our PowerBI Embedded application.
 
     Please follow this blog post for instructions on how to setup the AdventureWorks sample database on Microsoft Azure SQL Database: [https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/)
-
-
-1. **Connecting PowerBI Desktop to your Data Source**
+<br/><br/><br/>
+1. ###  **Connecting PowerBI Desktop to your Data Source**
 
     The authoring experience is something that the SaaS version of PowerBI (Powerbi.com) and PowerBI embedded share. Before we can embed our reports into our web apps, let&#39;s author a simple report to embed.
 
@@ -92,16 +91,14 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         ![](Images/12_relationships.png)
 
     You are now ready to author your reports.
-  
-  
-  
-1. **Authoring Your PowerBI Report**
+<br/><br/><br/>
+1. ###  **Authoring Your PowerBI Report**
 
      Now Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
 
      ![](Images/13_select_canvas.png)
-
-     1. _Chart showcasing Total Amount Spent Till Date_
+<br/><br/>
+     1. _**Chart showcasing Total Amount Spent Till Date**_
 
          1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
@@ -118,8 +115,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
          1. Your card should look as follows:
 
             ![](Images/17_total_card.png)
-  
-     1. _Chart showcasing Top Sold Products_
+<br/><br/>
+     1. _**Chart showcasing Top Sold Products**_
 
          1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
@@ -140,8 +137,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
          1. You should see your Treemap appear on your canvas. An optional step would be to rename the chart title as well.
 
          	![](Images/22_treemap_canvas.png)
-
-     1. _Chart Showcasing Top Selling Product Categories_
+<br/><br/>
+     1. _**Chart Showcasing Top Selling Product Categories**_
 
          1. Scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**ProductID**&#39; field.
 
@@ -158,8 +155,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
          1. You should see the chart as below:
 
             ![](Images/26_donut_canvas.png)
-  
-     1. _Chart Showcasing Transaction Amount By Sales Order Number_
+<br/><br/>
+     1. _**Chart Showcasing Transaction Amount By Sales Order Number**_
 
          1. From the right pane, scroll to the &#39;**SalesOrderDetail**&#39; table and click the checkmark next to the &#39;**LineTotal**&#39; field.
 
@@ -178,11 +175,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         	![](Images/30_clustered_chart_canvas.png)
 
          Even though the chart doesn&#39;t look as fascinating upfront, once filtered per customer, it will add value to the customer.
- 
- 
-  
-    
-1. **Creating Roles for Each Customer**
+<br/><br/><br/>
+1. ###  **Creating Roles for Each Customer**
 
      Now that our report has been created, we will start creating roles for our different customers so that they can see how much products they&#39;ve ordered. For this exercise, we will assume that all our customers have a &#39;adventure-works.com&#39; email domain.
 
@@ -221,11 +215,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
      The reports will now show data as if you were signed in as **&#39;david16@adventure-works.com&#39;**.
 
      At this point, you can save the report on your local computer and close PowerBI Desktop.
-
-	 
-	 
-	 
-1. **Uploading Your Report to your PBIE Workspace**
+<br/><br/><br/>
+1. ###  **Uploading Your Report to your PBIE Workspace**
 
      1. Make your way over to the command prompt. The first thing to do is to create a Workspace. We will be doing so using the NodeJS SDK. To do so, please use the following command:
 
@@ -276,11 +267,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
            ![](Images/43_update_connection.png)
 
      With this, we have successfully uploaded our report to PowerBI Embedded. It is now time to embed our report into a web application.
- 
- 
-	   
-	   
-1. **NodeJS Sample Application**
+<br/><br/><br/>
+1. ###  **NodeJS Sample Application**
 
      For this exercise, we have already created a bare-bone web application using [NodeJS](https://nodejs.org/en/), [Express](http://expressjs.com/) &amp; [Pug](https://pugjs.org/api/getting-started.html) (Jade). We will use [Passport](http://passportjs.org/) for authentication and Pug/Jade for our front-end. We will create a sample NodeJS application from scratch and add in the required code to enable PowerBI Embedded reports on our web application. You can also find the finished product in the &#39;finish&#39; folder.
 
@@ -357,7 +345,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
          1. Once started, you should be able to navigate to [http://localhost:3000/](http://localhost:3000/) and view the sample web page.
 
             ![](Images/44_express_start.png) 
-  
+<br/><br/>
      1. **Authentication**
 
          1. We&#39;ll add the authentication layer to this web app so that we can add row-level security. We will use the email addresses found in the &#39;**EmailAddress**&#39; column of the &#39;**Customer**&#39; table in the AdventureWorks database.
@@ -486,10 +474,10 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 		```
 
-        This is what it should look like:
+        This is an example of what it should look like:
 
            ![](Images/46_app_js.png)
-
+<br/><br/>
      1. **Token Creation &amp; Routing**
 
          1. At this point, we have successfully added the smarts to our application to handle authentication and sessions. Next, let&#39;s create the routings and the Power BI Embedded token to render the report. Let&#39;s open the index.js file.
@@ -623,7 +611,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 				});
 			});
 			```
-  
+
+		<br/><br/>
      1. **Front-end**
 
          For the front-end, we will be using JADE (now known as PUG). Jade is a server-side HTML rendering engine. You can learn more about it [here](https://pugjs.org/api/getting-started.html).
@@ -812,24 +801,24 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         1. With this, we have completed the code for the application. Let&#39;s save all the files and run the code using the following console command to see our website in action.
 
 			``` set DEBUG=pbie\_sample:\* &amp; npm start ```
-  
-     1. **Demo**
+<br/><br/><br/>
+1. ###  **Demo**
 
-         1. Let&#39;s use a browser and navigate to [http://localhost:3000/](http://localhost:3000/). You should automatically be redirected to the **Login** page.
+	1. Let&#39;s use a browser and navigate to [http://localhost:3000/](http://localhost:3000/). You should automatically be redirected to the **Login** page.
 
-            ![](Images/47_login_page.png)
+		![](Images/47_login_page.png)
 
-         1. Let&#39;s login using one of the invalid users. You should see the following error message, displayed using the [connect-flash](https://www.npmjs.com/package/connect-flash) module we added to our application.
+	1. Let&#39;s login using one of the invalid users. You should see the following error message, displayed using the [connect-flash](https://www.npmjs.com/package/connect-flash) module we added to our application.
 
-            ![](Images/48_invalid_user.png)
+		![](Images/48_invalid_user.png)
 
-         1. Now, let&#39;s login using a valid user. You can connect to the Adventureworks database and pull down any user you want to login with. I will be using [david16@adventure-works.com](mailto:david16@adventure-works.com). Once logged in, I should see the Power BI report embedded within my application and filtered down for my user, _&#39;david16&#39;_. This is Power BI Embedded&#39;s [Row Level Security](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-rls) in action. You can also notice a welcome message that is targeted for our user, David. This information is passed by our &#39;user&#39; object that we passed through index.js.
+	1. Now, let&#39;s login using a valid user. You can connect to the Adventureworks database and pull down any user you want to login with. I will be using [david16@adventure-works.com](mailto:david16@adventure-works.com). Once logged in, I should see the Power BI report embedded within my application and filtered down for my user, _&#39;david16&#39;_. This is Power BI Embedded&#39;s [Row Level Security](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-rls) in action. You can also notice a welcome message that is targeted for our user, David. This information is passed by our &#39;user&#39; object that we passed through index.js.
 
-           ![](Images/49_home_page_david.png)
+		![](Images/49_home_page_david.png)
 
-         1. Finally, let&#39;s ensure that the Row Level Security is working correctly. Let&#39;s log out and log back in as another user. This time, we&#39;ll use the email [andrea1@adventure-works.com](mailto:andrea1@adventure-works.com) to log in. You&#39;ll notice that the numbers are different, though the reports are the same. You can also notice how the two Power BI Reports have different data than the one we created in the Power BI desktop tool.
+	1. Finally, let&#39;s ensure that the Row Level Security is working correctly. Let&#39;s log out and log back in as another user. This time, we&#39;ll use the email [andrea1@adventure-works.com](mailto:andrea1@adventure-works.com) to log in. You&#39;ll notice that the numbers are different, though the reports are the same. You can also notice how the two Power BI Reports have different data than the one we created in the Power BI desktop tool.
 
-           ![](Images/50_home_page_andrea.png)
+		![](Images/50_home_page_andrea.png)
 
 
 With that, we&#39;ve successfully created our first NodeJS based web application with a Power BI report embedded in it. The final solution can found in this repository.
