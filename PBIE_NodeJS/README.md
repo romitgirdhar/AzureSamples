@@ -240,7 +240,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         Please replace the &#39;**&lt;collection&gt;**&#39; with your Collection name and the &#39;**&lt;accessKey&gt;**&#39; with your Access Key. Your &#39;**Collection**&#39; and &#39;**AccessKey**&#39; can be found in the Azure portal under the Workspace Collection that you created in Step I.
 
->**NOTE** : You can always explore the parameters needed to call a function by typing **'powerbi -h'** or **'powerbi &lt;functionName&gt; -h'**
+        >**NOTE** : You can always explore the parameters needed to call a function by typing **'powerbi -h'** or **'powerbi &lt;functionName&gt; -h'**
   
   
         If successful, you should see the following result, with the Workspace ID. Please keep a note of the Workspace ID.
@@ -261,7 +261,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         ``` powerbi import -c <collection> -w <workspaceId>  -k <accessKey> -f <filePathAlongWithFileName> -n [nameForThePBIReport] -o [overwrite] ```
  
  
->**NOTE** : If you are uploading the file for the first time, DO NOT include the overwrite flag.
+        >**NOTE** : If you are uploading the file for the first time, DO NOT include the overwrite flag.
 
            ![](Images/40_import.png)
  
