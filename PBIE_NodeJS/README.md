@@ -245,7 +245,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
   
         If successful, you should see the following result, with the Workspace ID. Please keep a note of the Workspace ID.
 
-            ![](Images/38_create_workspace.png)
+        ![](Images/38_create_workspace.png)
 
 
 
@@ -270,7 +270,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         ``` powerbi get-reports -c <collection> -w <workspaceId>  -k <accessKey> ```
 
-            ![](Images/41_get_reports.png)
+           ![](Images/41_get_reports.png)
 
      1. Copy and save the **reportID** that you&#39;re trying to embed. You will need this Report ID later.
 
@@ -278,7 +278,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 		``` powerbi get-datasets -c <collection> -w <workspaceId>  -k <accessKey> ```
 
-            ![](Images/42_get_datasets.png)
+           ![](Images/42_get_datasets.png)
 
      1. Save the **DatasetID** corresponding to the report that you&#39;re trying to embed. You will need it in the next step.
 
@@ -286,7 +286,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 		``` powerbi update-connection -c <collection> -w <workspaceId> -d <datasetID> -u &lt;Admin username&gt; -p &lt;admin password&gt; -k <accessKey> ```
 
-            ![](Images/43_update_connection.png)
+           ![](Images/43_update_connection.png)
 
      With this, we have successfully uploaded our report to PowerBI Embedded. It is now time to embed our report into a web application.
  
