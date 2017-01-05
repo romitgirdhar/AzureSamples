@@ -406,115 +406,115 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
          1. You can open up package.json to ensure that all these package dependencies have been added to the file.
 
-                ![](Images/45_package_json.png)
+              ![](Images/45_package_json.png)
 
          1. Now, open app.js in the editor of your choice. Without going into too much details on how passport.js works, let&#39;s add in the authentication piece.
          
          1. We will only use one file to perform routing i.e **index.js**. Let&#39;s start by removing the other routing rule below.
 
-				var users = require('/routes/users');
+			  ``` var users = require('/routes/users'); ```
 
          1. Now that we have removed one of the routing rules and only specified the one routing rule, let&#39;s add information on how to connect to our SQL DB. Before the line that initialized express i.e. var app = express();, let&#39;s add the following few lines. Do not forget to update the connection information in the config variable.
 
 ```JavaScript
-				var passport = require('passport');
-				var LocalStrategy = require('passport-local').Strategy;
-				var session = require('express-session');
-				var flash = require('connect-flash');
-				var sql = require('mssql');
-				var Connection = require('tedious').Connection;
-				var config = {
-				  userName: '<username>',
-				  password: '<password>’,
-				  server: '<AzureSQLServer>.database.windows.net',
-				  options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
-				};
-				
-				var connection = new Connection(config);
-				connection.on('connect', function(err){
-				  console.log('Connected to SQL DB')
-				});
+			var passport = require('passport');
+			var LocalStrategy = require('passport-local').Strategy;
+			var session = require('express-session');
+			var flash = require('connect-flash');
+			var sql = require('mssql');
+			var Connection = require('tedious').Connection;
+			var config = {
+			  userName: '<username>',
+			  password: '<password>’,
+			  server: '<AzureSQLServer>.database.windows.net',
+			  options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
+			};
+			
+			var connection = new Connection(config);
+			connection.on('connect', function(err){
+			  console.log('Connected to SQL DB')
+			});
 ```
  
 
         1. Next, let&#39;s add the authentication logic. Passport.js uses three main functions to perform authentication viz. **serializeUser** , **deserializeUser** &amp; **use**. After express() has been initialized, let&#39;s add in the three passport calls.
 
->**NOTE** : We will not be checking for password authentication since this is a sample application and for the purposes of demonstration only.
+           >**NOTE** : We will not be checking for password authentication since this is a sample application and for the purposes of demonstration only.
 
 ```JavaScript
-				var Request = require(&#39;tedious&#39;).Request;
-				
-				var TYPES = require(&#39;tedious&#39;).TYPES;
-				
-				passport.use(&#39;local-login&#39;,new LocalStrategy({
-				
-					  usernameField: &#39;username&#39;,
-				
-					  passwordField: &#39;password&#39;,
-				
-					  passReqToCallback: true,
-				
-					  session: true
-				
-				  },
-				
-				  function(req, username, password, done){
-				
-					request = new Request(&quot;SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress=&#39;&quot;+username+&quot;&#39;;&quot;, function(err, rowCount, rows){
-				
-					  if(err){
-				
-						return done(err);
-				
-					  }
-				
+			var Request = require(&#39;tedious&#39;).Request;
+			
+			var TYPES = require(&#39;tedious&#39;).TYPES;
+			
+			passport.use(&#39;local-login&#39;,new LocalStrategy({
+			
+				  usernameField: &#39;username&#39;,
+			
+				  passwordField: &#39;password&#39;,
+			
+				  passReqToCallback: true,
+			
+				  session: true
+			
+			  },
+			
+			  function(req, username, password, done){
+			
+				request = new Request(&quot;SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress=&#39;&quot;+username+&quot;&#39;;&quot;, function(err, rowCount, rows){
+			
+				  if(err){
+			
+					return done(err);
+			
+				  }
+			
+				  if(rowCount===0){
+			
+					 return done(null, false, {message: &#39;Invalid Username or Password&#39;});
+			
+				  }
+			
+				  return done(null, rows[0]);
+			
+					  });
+			
+					  connection.execSql(request);
+			
+					   //Not checking for password correction since this is a sample. You can extend this application to check for password as well. The SQL query returns the password.
+			
+			}));
+			
+			
+			
+			passport.serializeUser(function(user, done) {
+			
+			  done(null, user[3].value);
+			
+			});
+			
+			passport.deserializeUser(function(username, done) {
+			
+			  request = new Request(&quot;SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress=&#39;&quot;+username+&quot;&#39;;&quot;, function(err, rowCount, rows){
+			
+					   if(err){
+			
+						 return done(err);
+			
+					   }
+			
 					  if(rowCount===0){
-				
-						 return done(null, false, {message: &#39;Invalid Username or Password&#39;});
-				
-					  }
-				
-					  return done(null, rows[0]);
-				
-						  });
-				
-						  connection.execSql(request);
-				
-						   //Not checking for password correction since this is a sample. You can extend this application to check for password as well. The SQL query returns the password.
-				
-				}));
-				
-				
-				
-				passport.serializeUser(function(user, done) {
-				
-				  done(null, user[3].value);
-				
-				});
-				
-				passport.deserializeUser(function(username, done) {
-				
-				  request = new Request(&quot;SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress=&#39;&quot;+username+&quot;&#39;;&quot;, function(err, rowCount, rows){
-				
-						   if(err){
-				
-							 return done(err);
-				
-						   }
-				
-						  if(rowCount===0){
-				
-							return done(null, false, {message:&#39;User not found&#39;});
-				
-						   }
-				
-						   done(null, rows[0]);
-				
-						  });
-				
-						  connection.execSql(request);
-				
-				});  
+			
+						return done(null, false, {message:&#39;User not found&#39;});
+			
+					   }
+			
+					   done(null, rows[0]);
+			
+					  });
+			
+					  connection.execSql(request);
+			
+			});  
 ```
   
   
