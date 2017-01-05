@@ -462,21 +462,21 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         1. Don&#39;t forget to replace the &#39;**secret**&#39; with a secret phrase.
 
-		```JavaScript
-				app.use(session({
-				secret: '<someSecret>',
-				key: 'sid',
-				cookie: { secure: false },
-				}));
-				app.use(passport.initialize());
-				app.use(passport.session());
-				app.use(flash());
+			```JavaScript
+					app.use(session({
+					secret: '<someSecret>',
+					key: 'sid',
+					cookie: { secure: false },
+					}));
+					app.use(passport.initialize());
+					app.use(passport.session());
+					app.use(flash());
 
-		```
+			```
 
-        This is an example of what it should look like:
+          This is an example of what it should look like:
 
-           ![](Images/46_app_js.png)
+             ![](Images/46_app_js.png)
 <br/><br/>
      1. **Token Creation &amp; Routing**
 
@@ -755,8 +755,6 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 							.col-lg-10.col-lg-offset-4
 							button.btn.btn-primary(type='submit') Login
 				```
-
-
 
         1. Finally, let&#39;s create our home page experience and embed our report within the page. Open the index.jade file and add the following jade code to it.
 
