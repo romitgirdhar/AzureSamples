@@ -295,7 +295,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 	   
 1. **NodeJS Sample Application**
 
-     For this exercise, we have already created a bare-bone web application using [NodeJS](https://nodejs.org/en/), [Express](http://expressjs.com/) &amp; [Pug](https://pugjs.org/api/getting-started.html) (Jade). We have used [Passport](http://passportjs.org/) for authentication and Jade for our front-end. We will create a sample NodeJS application from scratch and add in the required code to enable PowerBI Embedded reports on our web application. You can also find the finished product in the &#39;finish&#39; folder.
+     For this exercise, we have already created a bare-bone web application using [NodeJS](https://nodejs.org/en/), [Express](http://expressjs.com/) &amp; [Pug](https://pugjs.org/api/getting-started.html) (Jade). We will use [Passport](http://passportjs.org/) for authentication and Pug/Jade for our front-end. We will create a sample NodeJS application from scratch and add in the required code to enable PowerBI Embedded reports on our web application. You can also find the finished product in the &#39;finish&#39; folder.
 
      1. **Setting up the Application**
 
@@ -366,7 +366,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         		set DEBUG=pbie\_sample:\* &amp; npm start
 
->**NOTE** : To help you easily deploy changes to your web app, you can also install &#39;**nodemon**&#39;.
+            >**NOTE** : To help you easily deploy changes to your web app, you can also install &#39;**nodemon**&#39;.
  
  
          1. Once started, you should be able to navigate to [http://localhost:3000/](http://localhost:3000/) and view the sample web page.
