@@ -13,12 +13,12 @@ var reportId = '<PBIE Report ID>';
 var credentials = new msrest.TokenCredentials(appKey, "AppKey");
 var client = new powerbi.PowerBIClient(credentials);
 
-// Render the login page.
+/* Render the login page. */
 router.get('/login', function(req, res) {
   res.render('login', { title: 'PBIE Login', error: req.flash('error')[0] });
 });
 
-//Render the Home page (Ensures the user is logged in)
+/* Render the Home page (Ensures the user is logged in) */
 router.get('/', function(req, res) {
   if(!req || !req.user){
     return res.redirect('/login');
@@ -30,13 +30,6 @@ router.get('/', function(req, res) {
     
     var token = powerbi.PowerBIToken.createReportEmbedToken(workspaceCollection, workspaceId, reportId, req.user[3].value, 'Customer');
     var jwt = token.generate(appKey);
-  /*  var rep = result.value.forEach(function(val){
-      //  console.log('found Report: '+val.id);
-        if(val.id.toString() === reportId){
-            return val;
-        }
-        
-    });*/
 
     var rep = result.value.filter(function(report){
         return report.id === reportId;
@@ -51,7 +44,7 @@ router.get('/', function(req, res) {
    });
 });
 
-//Handles the Passport login functionality.
+/* Handles the Passport login functionality. */
 router.post('/login',
   passport.authenticate('local-login', {session: true, failureRedirect: '/login', failureFlash: true}),
   function(req, res){
@@ -59,7 +52,7 @@ router.post('/login',
       res.redirect('/');
   });
  
-// Logout the user, then redirect to the login page.
+/* Logout the user, then redirect to the login page. */
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/login');
