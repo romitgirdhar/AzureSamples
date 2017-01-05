@@ -477,7 +477,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
           This is an example of what it should look like:
 
              ![](Images/46_app_js.png)
-<br/><br/>
+    <br/><br/>
      1. **Token Creation &amp; Routing**
 
          1. At this point, we have successfully added the smarts to our application to handle authentication and sessions. Next, let&#39;s create the routings and the Power BI Embedded token to render the report. Let&#39;s open the index.js file.
@@ -756,7 +756,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 							button.btn.btn-primary(type='submit') Login
 				```
 
-        1. Finally, let&#39;s create our home page experience and embed our report within the page. Open the index.jade file and add the following jade code to it.
+		1. Finally, let&#39;s create our home page experience and embed our report within the page. Open the index.jade file and add the following jade code to it.
 
 			```Pug
 			extends layout
