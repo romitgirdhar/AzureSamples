@@ -240,8 +240,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         Please replace the &#39;**&lt;collection&gt;**&#39; with your Collection name and the &#39;**&lt;accessKey&gt;**&#39; with your Access Key. Your &#39;**Collection**&#39; and &#39;**AccessKey**&#39; can be found in the Azure portal under the Workspace Collection that you created in Step I.
 
->**NOTE** : You can always explore the parameters needed to call a function by typing **'powerbi -h'** or **'powerbi <functionName> -h'**
-        
+>**NOTE** : You can always explore the parameters needed to call a function by typing **'powerbi -h'** or **'powerbi &lt;functionName&gt; -h'**
+  
+  
         If successful, you should see the following result, with the Workspace ID. Please keep a note of the Workspace ID.
 
             ![](Images/38_create_workspace.png)
@@ -250,7 +251,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
      1. To ensure that the workspace got created correctly, please run the following command. You should see your recently created Workspace ID in the list.
           
-		```  powerbi get-workspaces -c <collection> -k <accessKey>  ```
+	    ``` powerbi get-workspaces -c <collection> -k <accessKey>  ```
 
            ![](Images/39_get_workspaces.png)
 
@@ -258,7 +259,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
      1. Next, we will upload our report into the recently created Workspace ID. We will do so by running the following command (please replace the values of the variables with your specific values).
 
         ``` powerbi import -c <collection> -w <workspaceId>  -k <accessKey> -f <filePathAlongWithFileName> -n [nameForThePBIReport] -o [overwrite] ```
-
+ 
+ 
 >**NOTE** : If you are uploading the file for the first time, DO NOT include the overwrite flag.
 
            ![](Images/40_import.png)
@@ -287,8 +289,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
             ![](Images/43_update_connection.png)
 
      With this, we have successfully uploaded our report to PowerBI Embedded. It is now time to embed our report into a web application.
-
-	 
+ 
+ 
 	   
 	   
 1. **NodeJS Sample Application**
@@ -365,7 +367,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         		set DEBUG=pbie\_sample:\* &amp; npm start
 
 >**NOTE** : To help you easily deploy changes to your web app, you can also install &#39;**nodemon**&#39;.
-
+ 
+ 
          1. Once started, you should be able to navigate to [http://localhost:3000/](http://localhost:3000/) and view the sample web page.
 
             	![](Images/44_express_start.png)
@@ -423,7 +426,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 				var config = {
 				  userName: '<username>',
 				  password: '<password>’,
-				  server: '<AzureSQLServer>.database.windows.ne',
+				  server: '<AzureSQLServer>.database.windows.net',
 				  options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
 				};
 				
@@ -434,7 +437,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 ```
  
 
-         1. Next, let&#39;s add the authentication logic. Passport.js uses three main functions to perform authentication viz. **serializeUser** , **deserializeUser** &amp; **use**. After express() has been initialized, let&#39;s add in the three passport calls.
+        1. Next, let&#39;s add the authentication logic. Passport.js uses three main functions to perform authentication viz. **serializeUser** , **deserializeUser** &amp; **use**. After express() has been initialized, let&#39;s add in the three passport calls.
 
 >**NOTE** : We will not be checking for password authentication since this is a sample application and for the purposes of demonstration only.
 
@@ -515,14 +518,15 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 ```
   
   
-         1. Notice how we send a SQL query to check whether the user exists within our database. Now, this might not be the best practice for a production application (especially since we&#39;re using our reporting DB for authentication as well), but, it suffices for our demo application.
+        1. Notice how we send a SQL query to check whether the user exists within our database. Now, this might not be the best practice for a production application (especially since we&#39;re using our reporting DB for authentication as well), but, it suffices for our demo application.
 
-         1. Next, find the line that reads ``` use('/users', users); ``` and delete it since we will not have a users page in our sample application. You can also safely delete the **users.js** file found under the **routes** folder.
+        1. Next, find the line that reads ``` use('/users', users); ``` and delete it since we will not have a users page in our sample application. You can also safely delete the **users.js** file found under the **routes** folder.
 
-         1. Right above that line, let&#39;s add in session handling information. Since this is a demo application, we will be entering our secret key in the app.js itself. In a production application, the recommendation is to use something like [dotenv](https://github.com/motdotla/dotenv) to load your secret key into your application securely.
+        1. Right above that line, let&#39;s add in session handling information. Since this is a demo application, we will be entering our secret key in the app.js itself. In a production application, the recommendation is to use something like [dotenv](https://github.com/motdotla/dotenv) to load your secret key into your application securely.
 
-         1. Don&#39;t forget to replace the &#39;**secret**&#39; with a secret phrase.
+        1. Don&#39;t forget to replace the &#39;**secret**&#39; with a secret phrase.
 
+		 
 ```JavaScript
 				app.use(session({
 				
@@ -542,9 +546,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 ```
 
 
-         This is what it should look like:
+        This is what it should look like:
 
-            ![](Images/46_app_js.png)
+           ![](Images/46_app_js.png)
 
 
 
@@ -562,7 +566,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 				var msrest = require("ms-rest");
 ```
   
-         1. Let&#39;s also add some variables to help us fetch the right report. We will be hard-coding these variables in the application for the purposes of this demo. You could easily use something like [dotenv](https://github.com/motdotla/dotenv) to load your variables into your application securely.
+        1. Let&#39;s also add some variables to help us fetch the right report. We will be hard-coding these variables in the application for the purposes of this demo. You could easily use something like [dotenv](https://github.com/motdotla/dotenv) to load your variables into your application securely.
 
 ```JavaScript
 				var workspaceCollection = "<workspace collection name>";
@@ -575,7 +579,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 ```
 
 
-         1. Next, create a Power BI client so that we can communicate with the Power BI Embedded REST API. We&#39;ll do that by adding the following two lines of code.
+        1. Next, create a Power BI client so that we can communicate with the Power BI Embedded REST API. We&#39;ll do that by adding the following two lines of code.
 
 ```JavaScript
 				var credentials = new msrest.TokenCredentials(appKey, "AppKey");
@@ -583,9 +587,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 				var client = new powerbi.PowerBIClient(credentials);
 ```
 
-         1. Before we jump into the fun part, let&#39;s wire up our routing. Let&#39;s replace the current routing with the following. This will help us route the client to the necessary page. Please read the comments in the code for more explanation.
+        1. Before we jump into the fun part, let&#39;s wire up our routing. Let&#39;s replace the current routing with the following. This will help us route the client to the necessary page. Please read the comments in the code for more explanation.
 
-            _Remove This:_
+            * _Remove This:_
 
 ```JavaScript
 				 /* GET home page. */
@@ -597,7 +601,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 				});
 ```
 
-            _Add This:_
+            * _Add This:_
 
 ```JavaScript
 				// Render the **login** page.
@@ -652,9 +656,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 ```
 
 
-         1. Next, let&#39;s revisit the code where we check that the user is authenticated and redirect him/her to the home page and add in the code necessary to generate and sign our Power BI Access token and pass the details to the client to successfully embed the report. We&#39;ll add the code once the user has authenticated. This will help ensure that we don&#39;t generate access tokens for failed login attempts.
+        1. Next, let&#39;s revisit the code where we check that the user is authenticated and redirect him/her to the home page and add in the code necessary to generate and sign our Power BI Access token and pass the details to the client to successfully embed the report. We&#39;ll add the code once the user has authenticated. This will help ensure that we don&#39;t generate access tokens for failed login attempts.
 
-         The following is the code for creating the **embedToken** for a Power BI Embedded Report. We will replace the line of code that reads: res.render(&#39;index&#39;, { title: &#39;Express&#39; });
+        The following is the code for creating the **embedToken** for a Power BI Embedded Report. We will replace the line of code that reads: res.render(&#39;index&#39;, { title: &#39;Express&#39; });
 
 
 ```JavaScript
@@ -691,9 +695,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 				   });
 ```
 
-         1. As you can see, we use the Power BI Embedded NodeJS SDK and call the &#39;**createReportEmbedToken**&#39; method to generate the access token. By default, this access token is valid for 1 hour. However, we can change the validity of the token when creating it. You can learn more about creating an Access Toke [here](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-app-token-flow). Once the token is generated, we sign it using the &#39;**appkey**&#39; and store it within the &#39;**jwt**&#39; variable. Finally, notice how we pass the variables to the front-end within the &#39;render&#39; function. We&#39;re passing in two important pieces of information to the front-end. First being the &#39;user&#39; object that holds details about our logged in user, such as his/her name. Second, we pass in a object we created called &#39;**pbiReportDetails**&#39;, which contains important information about our report, such as a **ReportID** and the **AccessToken**. Another approach to this can be creating an API endpoint and having the front-end call into the API endpoint. However, we will not be using that approach in our sample.
+        1. As you can see, we use the Power BI Embedded NodeJS SDK and call the &#39;**createReportEmbedToken**&#39; method to generate the access token. By default, this access token is valid for 1 hour. However, we can change the validity of the token when creating it. You can learn more about creating an Access Toke [here](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-app-token-flow). Once the token is generated, we sign it using the &#39;**appkey**&#39; and store it within the &#39;**jwt**&#39; variable. Finally, notice how we pass the variables to the front-end within the &#39;render&#39; function. We&#39;re passing in two important pieces of information to the front-end. First being the &#39;user&#39; object that holds details about our logged in user, such as his/her name. Second, we pass in a object we created called &#39;**pbiReportDetails**&#39;, which contains important information about our report, such as a **ReportID** and the **AccessToken**. Another approach to this can be creating an API endpoint and having the front-end call into the API endpoint. However, we will not be using that approach in our sample.
 
-         This is what the final code looks like for the index page (&#39;/&#39;) route:
+        This is what the final code looks like for the index page (&#39;/&#39;) route:
 
 ```JavaScript
 				//Render the **Home** page (Ensures the user is logged in)
@@ -758,268 +762,269 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
          For the front-end, we will be using JADE (now known as PUG). Jade is a server-side HTML rendering engine. You can learn more about it [here](https://pugjs.org/api/getting-started.html).
 
-         1. In the &#39;**Views**&#39; folder, open **layout.jade**. This will be our skeleton layout, which will be added to all the pages of our web app. Replace the content of layout.jade with the following code. Jade is very particular about the indentation, so, ensure that your code is indented correctly.
+         1. In the &#39;**Views**&#39; folder, open **layout.jade**. This will be our skeleton layout, which will be added to all the pages of our web app. Replace the content of layout.jade with the following code. 
+		>**Note**: Pug/Jade is very particular about the indentation, so, ensure that your code is indented correctly.
 
 ```Pug
-				doctype html
-				
-				html
-				
-				  head
-				
-					title= title
-				
-					link(href=&#39;/stylesheets/bootstrap.min.css&#39;, rel=&#39;stylesheet&#39;)
-				
-					link(href=&#39;/stylesheets/style.css&#39;, rel=&#39;stylesheet&#39;)
-				
-				  body
-				
-					.container
-				
-					  .header
-				
-						ul.nav.nav-pills.pull-right
-				
-						  li
-				
-							a(href=&#39;/&#39;) Home
-				
-						  if user
-				
-							li
-				
-							  a(href=&#39;/logout&#39;) Logout
-				
-						  else
-				
-							li
-				
-							  a(href=&#39;/login&#39;) Login
-				
-						h3.text-muted Power BI Embedded Sample Application
-				
-					  block content
-				
-					script(src=&#39;/javascripts/jquery.min.js&#39;)
-				
-					script(src=&#39;/javascripts/bootstrap.min.js&#39;)
+		doctype html
+		
+		html
+		
+		  head
+		
+			title= title
+		
+			link(href=&#39;/stylesheets/bootstrap.min.css&#39;, rel=&#39;stylesheet&#39;)
+		
+			link(href=&#39;/stylesheets/style.css&#39;, rel=&#39;stylesheet&#39;)
+		
+		  body
+		
+			.container
+		
+			  .header
+		
+				ul.nav.nav-pills.pull-right
+		
+				  li
+		
+					a(href=&#39;/&#39;) Home
+		
+				  if user
+		
+					li
+		
+					  a(href=&#39;/logout&#39;) Logout
+		
+				  else
+		
+					li
+		
+					  a(href=&#39;/login&#39;) Login
+		
+				h3.text-muted Power BI Embedded Sample Application
+		
+			  block content
+		
+			script(src=&#39;/javascripts/jquery.min.js&#39;)
+		
+			script(src=&#39;/javascripts/bootstrap.min.js&#39;)
 ```
 
 
-         1. What we&#39;ve done here is added a &#39;**Login**&#39;, &#39;**Logout**&#39; and &#39;**Home**&#39; button. Additionally, we&#39;ve also added title text at the top of the page. Let&#39;s ensure our Javascript and css files are referenced correctly. You can download the files from here: [min.js](https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js) and [min.js &amp; bootstrap.min.css](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip). Finally, replace the contents of the file style.css found within the &#39;public/stylesheets&#39; folder with the following:
+        1. What we&#39;ve done here is added a &#39;**Login**&#39;, &#39;**Logout**&#39; and &#39;**Home**&#39; button. Additionally, we&#39;ve also added title text at the top of the page. Let&#39;s ensure our Javascript and css files are referenced correctly. You can download the files from here: [min.js](https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js) and [min.js &amp; bootstrap.min.css](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip). Finally, replace the contents of the file style.css found within the &#39;public/stylesheets&#39; folder with the following:
 
 ```css
-				#welcome {
-				
-				  margin-top: 6em;
-				
-				}
-				
-				#iFrameEmbedReport {
-				
-				  height: 600px;
-				
-				}
-				
-				#welcome li {
-				
-				  font-size: 1.5em;
-				
-				}
-				
-				.login, .logout {
-				
-				  margin-top: 6em;
-				
-				}
-				
-				.container .h3 {
-				
-				  text-align: center;
-				
-				}
-				
-				.login-fail {
-				
-				  margin-bottom: 1em;
-				
-				}
-				
-				.login .last-p {
-				
-				  margin-bottom: 2em;
-				
-				}
-				
-				.dashboard h2 {
-				
-				  font-weight: bold;
-				
-				}
-				
-				.dashboard .data {
-				
-				  color: #DF691A;
-				
-				  font-weight: bold;
-				
-				}
-				
-				.jumbotron h1 {
-				
-				  text-align: center;
-				
-				}
-				
-				.bigbutton {
-				
-				  text-align: center;
-				
-				  padding: 24px 48px;
-				
-				  font-size: 24px;
-				
-				  line-height: 1.33;
-				
-				  border-radius: 0;
-				
-				}
-				
-				footer p {
-				
-				  margin: 0em;
-				
-				  padding: 0em;
-				
-				  text-align: right !important;
-				
-				  text-transform: uppercase !important;
-				
-				  font-weight: 500 !important;
-				
-				  font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Lucida Grande&quot;, sans-serif !important;
-				
-				  font-size: 13px !important;
-				
-				  color: #fff !important;
-				
-				}
-				
-				footer p span {
-				
-				  vertical-align: bottom !important;
-				
-				}
-				
-				footer p img {
-				
-				  align: top !important;
-				
-				  vertical-align: top !important;
-				
-				}
-				
-				footer p img.lock {
-				
-				  align: bottom !important;
-				
-				  vertical-align: middle !important;
-				
-				}
+		#welcome {
+		
+		  margin-top: 6em;
+		
+		}
+		
+		#iFrameEmbedReport {
+		
+		  height: 600px;
+		
+		}
+		
+		#welcome li {
+		
+		  font-size: 1.5em;
+		
+		}
+		
+		.login, .logout {
+		
+		  margin-top: 6em;
+		
+		}
+		
+		.container .h3 {
+		
+		  text-align: center;
+		
+		}
+		
+		.login-fail {
+		
+		  margin-bottom: 1em;
+		
+		}
+		
+		.login .last-p {
+		
+		  margin-bottom: 2em;
+		
+		}
+		
+		.dashboard h2 {
+		
+		  font-weight: bold;
+		
+		}
+		
+		.dashboard .data {
+		
+		  color: #DF691A;
+		
+		  font-weight: bold;
+		
+		}
+		
+		.jumbotron h1 {
+		
+		  text-align: center;
+		
+		}
+		
+		.bigbutton {
+		
+		  text-align: center;
+		
+		  padding: 24px 48px;
+		
+		  font-size: 24px;
+		
+		  line-height: 1.33;
+		
+		  border-radius: 0;
+		
+		}
+		
+		footer p {
+		
+		  margin: 0em;
+		
+		  padding: 0em;
+		
+		  text-align: right !important;
+		
+		  text-transform: uppercase !important;
+		
+		  font-weight: 500 !important;
+		
+		  font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, &quot;Lucida Grande&quot;, sans-serif !important;
+		
+		  font-size: 13px !important;
+		
+		  color: #fff !important;
+		
+		}
+		
+		footer p span {
+		
+		  vertical-align: bottom !important;
+		
+		}
+		
+		footer p img {
+		
+		  align: top !important;
+		
+		  vertical-align: top !important;
+		
+		}
+		
+		footer p img.lock {
+		
+		  align: bottom !important;
+		
+		  vertical-align: middle !important;
+		
+		}
 ```
 
 
-         1. Let&#39;s add our login page. Within the &#39;**Views**&#39; folder, create file called as &#39;**login.jade**&#39; and add the following code in it. Note, we&#39;re using the twitter bootstrap login form template for this login form. It is a basic login form. We will not include advanced features such as &#39;Remember me&#39; and &#39;forgot your password&#39;. An important thing to note here is the first line of the login.jade file. It says &#39;extends layout&#39;. This ensures that layout.jade is used to render the skeleton page before adding the login specifics.
+        1. Let&#39;s add our login page. Within the &#39;**Views**&#39; folder, create file called as &#39;**login.jade**&#39; and add the following code in it. Note, we&#39;re using the twitter bootstrap login form template for this login form. It is a basic login form. We will not include advanced features such as &#39;Remember me&#39; and &#39;forgot your password&#39;. An important thing to note here is the first line of the login.jade file. It says &#39;extends layout&#39;. This ensures that layout.jade is used to render the skeleton page before adding the login specifics.
 
 ```Pug
-				extends layout
-				
-				block content
-				
-				  .login
-				
-					.row
-				
-					  .col-lg-6.col-lg-offset-3
-				
-						form.bs-example.form-horizontal(method=&#39;post&#39;,action=&#39;&#39;)
-				
-						  fieldset
-				
-							legend Power BI Embedded Sample App - Login
-				
-							  if error
-				
-								.alert.alert-dismissable.alert-danger.login-fail
-				
-								  button.close(type=&#39;button&#39;,data-dismiss=&#39;alert&#39;)
-				
-								  p.
-				
-								   #{error}
-				
-							  &lt;br/&gt;
-				
-							  &lt;br/&gt;
-				
-							  .form-group
-				
-								label.col-lg-4.control-label(for=&#39;username&#39;) Email
-				
-								.col-lg-4
-				
-								  input#username.form-control(type=&#39;email&#39;, name=&#39;username&#39;, placeholder=&#39;Email&#39;, autofocus)
-				
-							  .form-group
-				
-								label.col-lg-4.control-label(for=&#39;password&#39;) Password
-				
-								.col-lg-4
-				
-								  input#password.form-control(type=&#39;password&#39;, name=&#39;password&#39;, placeholder=&#39;Password&#39;)
-				
-							  .form-group
-				
-								.col-lg-10.col-lg-offset-4
-				
-								button.btn.btn-primary(type=&#39;submit&#39;) Login
-```
-
-
-
-         1. Finally, let&#39;s create our home page experience and embed our report within the page. Open the index.jade file and add the following jade code to it.
-
-```Pug
-				extends layout
-				
-				block content
-				
-				  #welcome.jumbotron
-				
-					script(src=&#39;/javascripts/powerbi-client/dist/powerbi.js&#39;)
-				
-					h3 Hello &lt;u&gt;&lt;b&gt;#{user[0].value}&lt;/b&gt;&lt;/u&gt;, Welcome to Power BI Embedded NodeJS Sample Application
-				
-					p.lead.
-				
+		extends layout
+		
+		block content
+		
+		  .login
+		
+			.row
+		
+			  .col-lg-6.col-lg-offset-3
+		
+				form.bs-example.form-horizontal(method=&#39;post&#39;,action=&#39;&#39;)
+		
+				  fieldset
+		
+					legend Power BI Embedded Sample App - Login
+		
+					  if error
+		
+						.alert.alert-dismissable.alert-danger.login-fail
+		
+						  button.close(type=&#39;button&#39;,data-dismiss=&#39;alert&#39;)
+		
+						  p.
+		
+						   #{error}
+		
 					  &lt;br/&gt;
-				
-					if error
-				
-					  .alert.alert-dismissable.alert-danger.login-fail
-				
-						button.close(type=&#39;button&#39;,data-dismiss=&#39;alert&#39;)
-				
-						p.
-				
-						  #{error}
-				
-					div#iFrameEmbedReport
+		
+					  &lt;br/&gt;
+		
+					  .form-group
+		
+						label.col-lg-4.control-label(for=&#39;username&#39;) Email
+		
+						.col-lg-4
+		
+						  input#username.form-control(type=&#39;email&#39;, name=&#39;username&#39;, placeholder=&#39;Email&#39;, autofocus)
+		
+					  .form-group
+		
+						label.col-lg-4.control-label(for=&#39;password&#39;) Password
+		
+						.col-lg-4
+		
+						  input#password.form-control(type=&#39;password&#39;, name=&#39;password&#39;, placeholder=&#39;Password&#39;)
+		
+					  .form-group
+		
+						.col-lg-10.col-lg-offset-4
+		
+						button.btn.btn-primary(type=&#39;submit&#39;) Login
 ```
 
 
-         1. As you can see, we&#39;ve created a div tag called &#39;**iFrameEmbedReport**&#39;. We will be using this div tag to embed our Power BI report within our page. We will add the following JavaScript code to embed the report. The code makes use of the Power BI Javascript SDK we added to our project previously. Notice that we&#39;re adding a reference of the SDK to our index.jade file. To correctly reference it, copy the folder &#39;**powerbi-client**&#39; found in the &#39;**node\_modules**&#39; folder and paste it within the &#39;**public/javascripts**&#39; folder. Here&#39;s the JS code that we will to the bottom of the index.jade file that will help us render the Power BI report within the div tag.
+
+        1. Finally, let&#39;s create our home page experience and embed our report within the page. Open the index.jade file and add the following jade code to it.
+
+```Pug
+		extends layout
+		
+		block content
+		
+		  #welcome.jumbotron
+		
+			script(src=&#39;/javascripts/powerbi-client/dist/powerbi.js&#39;)
+		
+			h3 Hello &lt;u&gt;&lt;b&gt;#{user[0].value}&lt;/b&gt;&lt;/u&gt;, Welcome to Power BI Embedded NodeJS Sample Application
+		
+			p.lead.
+		
+			  &lt;br/&gt;
+		
+			if error
+		
+			  .alert.alert-dismissable.alert-danger.login-fail
+		
+				button.close(type=&#39;button&#39;,data-dismiss=&#39;alert&#39;)
+		
+				p.
+		
+				  #{error}
+		
+			div#iFrameEmbedReport
+```
+
+
+        1. As you can see, we&#39;ve created a div tag called &#39;**iFrameEmbedReport**&#39;. We will be using this div tag to embed our Power BI report within our page. We will add the following JavaScript code to embed the report. The code makes use of the Power BI Javascript SDK we added to our project previously. Notice that we&#39;re adding a reference of the SDK to our index.jade file. To correctly reference it, copy the folder &#39;**powerbi-client**&#39; found in the &#39;**node\_modules**&#39; folder and paste it within the &#39;**public/javascripts**&#39; folder. Here&#39;s the JS code that we will to the bottom of the index.jade file that will help us render the Power BI report within the div tag.
 
 ```Pug
 				script.
@@ -1047,9 +1052,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 
 
-         1. Within the JS code above, we&#39;re first creating a variable called &#39;embedConfiguration&#39;, which holds the details our Power BI report. It requires 2 pieces of important information. First being the Power BI **Report ID** and the second being the **Access Token**. It uses the variables we passed through our index.js file. Finally, we call the **powerbi.embed** function to embed the Power BI report within our application.
+        1. Within the JS code above, we&#39;re first creating a variable called &#39;embedConfiguration&#39;, which holds the details our Power BI report. It requires 2 pieces of important information. First being the Power BI **Report ID** and the second being the **Access Token**. It uses the variables we passed through our index.js file. Finally, we call the **powerbi.embed** function to embed the Power BI report within our application.
 
-         1. With this, we have completed the code for the application. Let&#39;s save all the files and run the code using the following console command to see our website in action.
+        1. With this, we have completed the code for the application. Let&#39;s save all the files and run the code using the following console command to see our website in action.
 
 			``` set DEBUG=pbie\_sample:\* &amp; npm start ```
   
