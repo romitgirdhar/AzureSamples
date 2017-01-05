@@ -754,7 +754,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 						.form-group
 							.col-lg-10.col-lg-offset-4
 							button.btn.btn-primary(type='submit') Login
-				```
+			```
 
 		1. Finally, let&#39;s create our home page experience and embed our report within the page. Open the index.jade file and add the following jade code to it.
 
