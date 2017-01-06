@@ -45,6 +45,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 1. Visit the [Demo](#demo) section to understand how to navigate the web application.
 
+<br/>
 
 ## **[Guide](#guide)**
 
