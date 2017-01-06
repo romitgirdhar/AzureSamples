@@ -37,7 +37,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 	1. [Adding Row-Level Security to the Power BI Report](#pbie-rls)
 	1. [Uploading Your Report to your PBIE Workspace](#upload-report)
 	1. [NodeJS Sample Application](#nodejs-sample-app)
-	1. [Demo](#demo)
+	1. [Demo](#guide#demo)
 
 1. ###  **[Create a Workspace Collection](#workspace-collection)**
 
