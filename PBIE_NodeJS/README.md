@@ -35,7 +35,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 	options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
 	};
 	```
-1. Open the **views/index.js** file found in the **pbie_sample** folder and replace the values for your Power BI Embedded details. Save and close once done.
+1. Open the **routes/index.js** file found in the **pbie_sample** folder and replace the values for your Power BI Embedded details. Save and close once done.
 	```JavaScript
 	var workspaceCollection = "<workspace collection name>";
 	var appKey = "<power bi embedded app key>";
