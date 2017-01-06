@@ -23,7 +23,7 @@ var config = {
 
 var connection = new Connection(config);
 connection.on('connect', function(err){
-  console.log('Connected to SQL DB')
+  console.log('SQL Server to connect to: '+config.server)
 });
 
 var app = express();
