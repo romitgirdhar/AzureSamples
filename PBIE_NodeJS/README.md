@@ -6,9 +6,11 @@
 
 ## **Introduction:**
 
-PowerBI Embedded (PBIE) is the latest PaaS offering in Microsoft Azure that helps you embed impactful and interactive charts and reports into your web applications. It uses PowerBI Desktop as its authoring tool. PowerBI Embedded offers APIs in .NET, NodeJS and a RESTful API to upload charts and interact with your PowerBI embedded accounts in Microsoft Azure.
+PowerBI Embedded (PBIE) is the latest PaaS offering in Microsoft Azure that helps you embed impactful and interactive charts and reports into your web applications. It uses PowerBI Desktop as its authoring tool. PowerBI Embedded offers APIs in .NET, NodeJS and a RESTful API to upload charts and interact with your PowerBI embedded accounts in Microsoft Azure. In this document, we will be showcasing how to work with PowerBI Embedded using the NodeJS SDK. 
 
-In this document, we will be showcasing how to work with PowerBI Embedded using the NodeJS SDK. You can either choose to download the sample as is and run it in your own environment by following the [Setup](#setup) section, or start from scratch and follow the [Guide](#guide) section to setup the sample on your machine.
+You have <u>**two**</u> options to help familirize yourself with this sample:
+- Download the sample as is and run it in your own environment by following the [Setup](#setup) section
+- Start from scratch and follow the [Guide](#guide) section to setup the sample on your machine.
 
 <br/>
 
