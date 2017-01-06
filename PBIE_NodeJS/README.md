@@ -24,7 +24,27 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 1. Ensure you have the pre-requisites installed. Clone or download this repository. You can also choose to just download the **PBIE_NodeJS** folder.
 
+1. Open the **app.js** file found in the **pbie_sample** folder and replace the values for your SQL Azure Database. Save and close once done.
+	>**NOTE**: If you do not plan to use AdventureWorksDB, you would even need to change the Passport authentication code in this sample application or remove the Row-level Security feature all-together. Refer to the [NodeJS Sample Application](#nodejs-sample-app) section for more details.
+	
+	```JavaScript
+	var config = {
+	userName: '<username>',
+	password: '<password>',
+	server: '<AzureSQLServer>.database.windows.net',
+	options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
+	};
+	```
+1. Open the **views/index.js** file found in the **pbie_sample** folder and replace the values for your Power BI Embedded details. Save and close once done.
+	```JavaScript
+	var workspaceCollection = "<workspace collection name>";
+	var appKey = "<power bi embedded app key>";
+	var workspaceId = "<PBIE workspace ID>";
+	var reportId = "<PBIE Report ID>";
+	```
+
 1. Visit the [Demo](#demo) section to understand how to navigate the web application.
+
 
 ## **[Guide](#guide)**
 
