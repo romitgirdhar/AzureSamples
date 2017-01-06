@@ -28,7 +28,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 ## **[Guide](#guide)**
 
-1. ### **Index**
+	### **Index**
 	1. [Create a Workspace Collection](#workspace-collection)
 	1. [Installing the Power BI Embedded Node.JS SDK](#pbie-nodejs-sdk)
 	1. [Setting up the Data Source](#data-source)
@@ -815,8 +815,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         1. With this, we have completed the code for the application. Let&#39;s save all the files and run the code using the following console command to see our website in action.
 
-<br/><br/><br/>
-1. ###  **[Demo](#demo)**
+<br/><br/>
+
+1. ### **[Demo](#demo)**
 
 	1. From the command line, navigate to the root directory of **pbie_sample** and run the command ```npm install```. This should download all the dependencies needed for for the solution to run.
 
