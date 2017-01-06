@@ -28,7 +28,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 ## **[Guide](#guide)**
 
- ### **[Index](#index)**
+### **[Index](#index)**
  1. [Create a Workspace Collection](#workspace-collection)
  1. [Installing the Power BI Embedded Node.JS SDK](#pbie-nodejs-sdk)
  1. [Setting up the Data Source](#data-source)
@@ -37,15 +37,16 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
  1. [Adding Row-Level Security to the Power BI Report](#pbie-rls)
  1. [Uploading Your Report to your PBIE Workspace](#upload-report)
  1. [NodeJS Sample Application](#nodejs-sample-app)
- 1. [Demo](#guide#demo)
+ 1. [Demo](#demo)
 
 <br/>
 
-1. ###  **[Create a Workspace Collection](#workspace-collection)**
+1. ###  **<a id='workspace-collection'>Create a Workspace Collection</a>**
 
    Please follow the steps highlighted in this walkthrough: [https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/#create-a-workspace-collection)
 <br/><br/><br/>
-1. ###  **[Installing the Power BI Embedded Node.JS SDK](#pbie-nodejs-sdk)**
+
+1. ###  **<a id='pbie-nodejs-sdk'>Installing the Power BI Embedded Node.JS SDK</a>**
 
    PowerBI Node.JS SDK is available for download via github. The repository can be found [here](https://github.com/Microsoft/PowerBI-Node). The Node API works well in conjunction with the Node.JS command line interface, the code for which can be found [here](https://github.com/Microsoft/PowerBI-Cli).
 
@@ -61,13 +62,15 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
         ![](Images/3_npm_install_pbi_cli.png)
 <br/><br/><br/>
-1. ###  **[Setting up the Data Source](#data-source)**
+
+1. ###  **<a id='data-source'>Setting up the Data Source</a>**
 
     For the purposes of this lab, we will be using the AdventureWorks Database to highlight the use of direct query in our PowerBI Embedded application.
 
     Please follow this blog post for instructions on how to setup the AdventureWorks sample database on Microsoft Azure SQL Database: [https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/adventure-works-for-azure-sql-database/)
 <br/><br/><br/>
-1. ###  **[Connecting PowerBI Desktop to your Data Source](#connect-data)**
+
+1. ###  **<a id='connect-data'>Connecting PowerBI Desktop to your Data Source </a>**
 
     The authoring experience is something that the SaaS version of PowerBI (Powerbi.com) and PowerBI embedded share. Before we can embed our reports into our web apps, let&#39;s author a simple report to embed.
 
@@ -111,7 +114,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
     You are now ready to author your reports.
 <br/><br/><br/>
-1. ###  **[Authoring Your PowerBI Report](#author-pbi)**
+
+1. ###  **<a id='author-pbi'>Authoring Your PowerBI Report</a>**
 
      Now Head back to the canvas by clicking on the &#39;Report&#39; icon on the left pane.
 
@@ -195,7 +199,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
          Even though the chart doesn&#39;t look as fascinating upfront, once filtered per customer, it will add value to the customer.
 <br/><br/><br/>
-1. ###  **[Adding Row-Level Security to the Power BI Report](#pbie-rls)**
+
+1. ###  **<a id='pbie-rls'>Adding Row-Level Security to the Power BI Report</a>**
 
      Now that our report has been created, we will start creating roles for our different customers so that they can see how much products they&#39;ve ordered. For this exercise, we will assume that all our customers have a &#39;adventure-works.com&#39; email domain.
 
@@ -235,7 +240,8 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
      At this point, you can save the report on your local computer and close PowerBI Desktop.
 <br/><br/><br/>
-1. ###  **[Uploading Your Report to your PBIE Workspace](#upload-report)**
+
+1. ###  **<a id='upload-report'>Uploading Your Report to your PBIE Workspace</a>**
 
      1. Make your way over to the command prompt. The first thing to do is to create a Workspace. We will be doing so using the NodeJS SDK. To do so, please use the following command:
 
@@ -287,7 +293,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
      With this, we have successfully uploaded our report to PowerBI Embedded. It is now time to embed our report into a web application.
 <br/><br/><br/>
-1. ###  **[NodeJS Sample Application](#nodejs-sample-app)**
+1. ###  **<a id='nodejs-sample-app'>NodeJS Sample Application</a>**
 
      For this exercise, we have already created a bare-bone web application using [NodeJS](https://nodejs.org/en/), [Express](http://expressjs.com/) &amp; [Pug](https://pugjs.org/api/getting-started.html) (Jade). We will use [Passport](http://passportjs.org/) for authentication and Pug/Jade for our front-end. We will create a sample NodeJS application from scratch and add in the required code to enable PowerBI Embedded reports on our web application. You can also find the finished product in the &#39;finish&#39; folder.
 
@@ -818,7 +824,7 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         1. With this, we have completed the code for the application. Let&#39;s save all the files and run the code using the following console command to see our website in action.
 <br/><br/>
 
-1. ###  **[Demo](#demo)**
+1. ###  **<a id='demo'>Demo</a>**
 
 	1. From the command line, navigate to the root directory of **pbie_sample** and run the command ```npm install```. This should download all the dependencies needed for for the solution to run.
 
