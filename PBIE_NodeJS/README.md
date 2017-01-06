@@ -28,16 +28,18 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
 
 ## **[Guide](#guide)**
 
-	### **Index**
-	1. [Create a Workspace Collection](#workspace-collection)
-	1. [Installing the Power BI Embedded Node.JS SDK](#pbie-nodejs-sdk)
-	1. [Setting up the Data Source](#data-source)
-	1. [Connecting PowerBI Desktop to your Data Source](#connect-data)
-	1. [Authoring Your PowerBI Report](#author-pbi)
-	1. [Adding Row-Level Security to the Power BI Report](#pbie-rls)
-	1. [Uploading Your Report to your PBIE Workspace](#upload-report)
-	1. [NodeJS Sample Application](#nodejs-sample-app)
-	1. [Demo](#guide#demo)
+ ### **[Index](#index)**
+ 1. [Create a Workspace Collection](#workspace-collection)
+ 1. [Installing the Power BI Embedded Node.JS SDK](#pbie-nodejs-sdk)
+ 1. [Setting up the Data Source](#data-source)
+ 1. [Connecting PowerBI Desktop to your Data Source](#connect-data)
+ 1. [Authoring Your PowerBI Report](#author-pbi)
+ 1. [Adding Row-Level Security to the Power BI Report](#pbie-rls)
+ 1. [Uploading Your Report to your PBIE Workspace](#upload-report)
+ 1. [NodeJS Sample Application](#nodejs-sample-app)
+ 1. [Demo](#guide#demo)
+
+<br/>
 
 1. ###  **[Create a Workspace Collection](#workspace-collection)**
 
@@ -814,10 +816,9 @@ In this document, we will be showcasing how to work with PowerBI Embedded using 
         1. Within the JS code above, we&#39;re first creating a variable called &#39;embedConfiguration&#39;, which holds the details our Power BI report. It requires 2 pieces of important information. First being the Power BI **Report ID** and the second being the **Access Token**. It uses the variables we passed through our index.js file. Finally, we call the **powerbi.embed** function to embed the Power BI report within our application.
 
         1. With this, we have completed the code for the application. Let&#39;s save all the files and run the code using the following console command to see our website in action.
-
 <br/><br/>
 
-1. ### **[Demo](#demo)**
+1. ###  **[Demo](#demo)**
 
 	1. From the command line, navigate to the root directory of **pbie_sample** and run the command ```npm install```. This should download all the dependencies needed for for the solution to run.
 
