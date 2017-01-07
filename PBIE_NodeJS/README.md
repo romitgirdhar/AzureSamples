@@ -10,6 +10,8 @@ PowerBI Embedded (PBIE) is the latest PaaS offering in Microsoft Azure that help
 
 You have <u>**two**</u> options to help familirize yourself with this sample:
 - Download the sample as is and run it in your own environment by following the [Setup](#setup) section
+
+OR
 - Start from scratch and follow the [Guide](#guide) section to setup the sample on your machine.
 
 <br/>
