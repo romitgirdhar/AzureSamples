@@ -12,18 +12,24 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var flash = require('connect-flash');
 
-var sql = require('mssql');
 var Connection = require('tedious').Connection;
 var config = {
-  userName: '<Username>',
-  password: '<Password>',
+  userName: '<username>',
+  password: '<password>',
   server: '<Azure SQL Server>.database.windows.net',
   options: {encrypt: true, database: 'AdventureWorksSampleDB', rowCollectionOnRequestCompletion: true}
 };
 
 var connection = new Connection(config);
 connection.on('connect', function(err){
-  console.log('SQL Server to connect to: '+config.server)
+  if(err)
+  {
+    console.log('Error while connecting to SQL DB! Error Details: '+err);
+  }
+  else{
+    console.log('Connected to SQL Server: '+config.server);
+  }
+  
 });
 
 var app = express();
@@ -38,7 +44,7 @@ passport.use('local-login',new LocalStrategy({
       session: true
   },
   function(req, username, password, done){
-    request = new Request("SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress='"+username+"';", function(err, rowCount, rows){
+    request = new Request("SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress=@user_name;", function(err, rowCount, rows){
       if(err){
         return done(err);
       }
@@ -47,6 +53,7 @@ passport.use('local-login',new LocalStrategy({
       }
       return done(null, rows[0]);
           });
+          request.addParameter('user_name', TYPES.NVarChar, username);
           connection.execSql(request);
            //Not checking for password correction since this is a sample. You can extend this application to check for password as well. The SQL query returns the password.
 }));
@@ -58,7 +65,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(username, done) {
-  request = new Request("SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress='"+username+"';", function(err, rowCount, rows){
+  request = new Request("SELECT c.FirstName, c.LastName, c.CompanyName, c.EmailAddress AS username, c.PasswordHash, c.PasswordSalt FROM SalesLT.Customer AS c WHERE c.EmailAddress=@user_name;", function(err, rowCount, rows){
            if(err){
              return done(err);
            }
@@ -67,6 +74,7 @@ passport.deserializeUser(function(username, done) {
            }
            done(null, rows[0]);
           });
+          request.addParameter('user_name', TYPES.NVarChar, username);
           connection.execSql(request);
 });
 

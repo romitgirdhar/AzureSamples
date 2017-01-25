@@ -407,7 +407,6 @@ OR
 				npm install express-session --save
 				npm install connect-flash --save
 				npm install tedious --save
-				npm install mssql --save
 				npm install ms-rest --save
 				npm install powerbi-api --save
 				npm install powerbi-client --save
@@ -419,7 +418,6 @@ OR
             - [express-session](https://github.com/expressjs/session): This will be used to do session handling when a user is logged in, since passport does not do session management for us.
             - [connect-flash](https://github.com/jaredhanson/connect-flash): This will be used to help us with error handling by providing flash messages which can be displayed to user on error.
             - [tedious](https://github.com/tediousjs/tedious): Tedious is an implementation of the [TDS protocol](http://msdn.microsoft.com/en-us/library/dd304523.aspx), which is used to interact with instances of Microsoft&#39;s SQL Server
-            - [mssql](https://github.com/patriksimek/node-mssql): NPM package to interact with Azure SQL DB/MS SQL Server.
             - [ms-rest](https://github.com/Azure/azure-sdk-for-node/tree/master/runtime/ms-rest): When communicating with Azure, this package helps us in serialization/deserialization, error handling, tracing, and http client pipeline configuration. Required by nodeJS client libraries generated using AutoRest.
             - [powerbi-api](https://github.com/Microsoft/PowerBI-Node): NodeJS SDK for Power BI Embedded
             - [powerbi-client](https://github.com/Microsoft/PowerBI-JavaScript): Client-side Javascript library for Power BI Embedded.
@@ -441,7 +439,6 @@ OR
 			var LocalStrategy = require('passport-local').Strategy;
 			var session = require('express-session');
 			var flash = require('connect-flash');
-			var sql = require('mssql');
 			var Connection = require('tedious').Connection;
 			var config = {
 			userName: '<username>',
@@ -696,7 +693,7 @@ OR
 
 			```
 
-        1. What we&#39;ve done here is added a &#39;**Login**&#39;, &#39;**Logout**&#39; and &#39;**Home**&#39; button. Additionally, we&#39;ve also added title text at the top of the page. Let&#39;s ensure our Javascript and css files are referenced correctly. You can download the files from here: [min.js](https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js) and [min.js &amp; bootstrap.min.css](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip). Finally, replace the contents of the file style.css found within the &#39;public/stylesheets&#39; folder with the following:
+        1. What we&#39;ve done here is added a &#39;**Login**&#39;, &#39;**Logout**&#39; and &#39;**Home**&#39; button. Additionally, we&#39;ve also added title text at the top of the page. Let&#39;s ensure our Javascript and css files are referenced correctly. You can download the files from here: [jquery.min.js](https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js) and [bootstrap.min.js &amp; bootstrap.min.css](https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip). Finally, replace the contents of the file style.css found within the &#39;public/stylesheets&#39; folder with the following:
 
 			```css
 				#welcome {
